@@ -1,0 +1,102 @@
+@import '../../CssVariables';
+
+.CreateAccount{
+   font-size: 12px; 
+   margin: 30px 0 15px;
+}
+.WhoIAmOuter{
+    min-height: 26.67px;
+}
+.WhoIAMLink{
+    font-size: 18px;
+    display: inline-block;
+}
+.SubmitMarginTop{
+    margin-top: 50px !important;
+}
+body{
+    background-color: #fff !important;
+}
+.CommonFooter{
+    background-color: #f7f7f7 !important;
+}
+
+
+.LogoAnchorClass {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+}
+
+.OnBoardingFormOuter {
+    margin-top: 55px !important;
+    border-radius: 6px;
+    background-color: #fff;
+    padding: 30px 20px 20px!important;
+.FormHeading{
+    min-height: 70px !important;
+}
+}
+.OnBoardingFormOuterBoxShadow{
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 28%);
+}
+
+.LogoAnchorClass.logo1 img{
+    padding: 5px 0px 5px 15px !important;
+ }
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+
+    .SubmitMarginTop {
+        margin-top: 15px !important;
+        text-align: center;
+    }
+    .CreateAccount {
+        font-size: 11px;
+        margin-top: 15px;
+        text-align: center;
+    }
+    .WhoIAMLink {
+        font-size: 12px !important;
+        line-height: 30px;
+        align-items: center;
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { 
+  .OnBoardingFormOuter {
+    margin-top: 50px !important;
+}
+.navbar-brand.LogoAnchorClass img{
+    width: 200px;
+}
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {  }
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {  }
+.captcha{
+  height:65px;
+  width:210px;
+background-image: url(../../assets/images/captcha.png);
+}
+.captchatext{
+  height: 65px;
+    width: 210px;
+    opacity: 0.7;    
+    border: none !important;
+    text-align: center;
+    font-size: 45px;
+    font-family: italic;
+}
+.FormLogo{
+    margin-bottom: 15px;
+    img{
+        width: 130px;
+    }
+}

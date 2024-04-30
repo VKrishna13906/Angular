@@ -1,0 +1,108 @@
+@import '../../../CssVariables';
+.GridRow1{
+    display: grid;
+    grid-template-columns: 4.6fr 1.5fr;
+    grid-gap: 20px;
+    .Count,.Count2 {
+        display: grid;
+        grid-template-columns: 2.3fr 1fr;
+        grid-column-gap: 20px;
+    }
+    .Count2{
+        margin: 20px;
+    }
+}
+
+
+.ClientCount{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+    margin:20px;
+    .ClientCountInner{
+        background-color: #fff;
+        padding: 10px;
+        width:140px;
+        height:40px;
+        .ClientIconOuter{
+    text-align: right;
+    display: inline-block;
+    border-radius: 50%;
+        }
+        .ClientIconOuter.TotalClient{
+            background-color: rgb(66 133 244 / 10%);
+        }
+        .ClientIconOuter.ActiveClient{
+            background-color: rgb(250 187 5 / 10%);
+        }
+        .ClientIconOuter.InActiveClient{
+            background-color: rgb(217 48 37 / 10%);
+        }
+        .ClientIconOuter.OnlineInvestor{
+            background-color: rgb(24 128 56 / 10%);
+        }
+        .ClientIcon{
+            width: 30px;
+            padding: 5px;
+        }
+        .ClientCount{
+            font-size: 32px;
+            font-family: "Segoe UI Bold";
+            line-height: 42px;
+            margin-top: 5px;
+        }
+        .ClientCountText{
+            font-size: 15px;
+            margin-top: 6px;
+            img{
+                width:12px;
+                height:12px;
+                cursor: pointer;
+            }
+        }
+    }
+    .NoRecordFoundAlign{
+        min-height: 33px !important;
+        justify-content: left !important;
+        margin-top: 14px;
+    }
+}
+
+.TopMost{
+    background-color: #fff;
+}
+.ClientCountInner a:hover
+{
+    color:#fff !important;
+    background-color:red;
+    text-decoration: none !important;
+}
+.MainInnerFormWithoutFlex .ClientCountInner:hover
+{
+    background-color:red !important;
+    color:#fff !important;
+}
+.AnchorLinkDownload 
+{
+    text-decoration: underline !important;
+    color:#0056b3 !important;
+    cursor: pointer !important;
+    padding:5px;
+}
+.pb-20
+{
+    padding-bottom: 20px;;
+}
+.TabContentData 
+{
+    padding:15px !important;
+}
+.fillSvg
+{
+    fill:#0056b3;
+}
+.hovereffect:hover
+{
+    color:#007bff;
+    text-decoration: underline;
+}

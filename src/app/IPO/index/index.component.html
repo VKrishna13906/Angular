@@ -1,0 +1,1316 @@
+<header class="header_area">
+  <div class="main_header_area animated">
+      <div class="container-1360-wrp">
+          <nav id="navigation1" class="navigation">
+              <div class="nav-header py-0" [ngClass]="showCompanyImg ? 'CoBrandNavbar':''">
+                  <a class="nav-brand" (click)="GoToHome()">
+                      <img src="../../../{{CommonBaseHref}}assets/images/Kotak/logo.svg" class="img-responsive width60"
+                          data-src="../../../{{CommonBaseHref}}assets/images/Kotak/logo.svg" alt="logo">
+                  <!-- <div *ngIf="showCompanyImg" class="Poweredby">Powered by</div> -->
+                        </a>
+                  <a *ngIf="showCompanyImg" class="nav-brand" style="pointer-events: none;">
+                    <img src="../../../{{CommonBaseHref}}assets/images/Kotak/{{decryptedValues}}.png" class="img-responsive width60 CoBrandLogo"
+                        data-src="../../../{{CommonBaseHref}}assets/images/Kotak/{{decryptedValues}}.png" alt="logo">
+                </a>
+                  <div *ngIf="hideHeader" class="nav-toggle"></div>
+              </div>
+              <div hidden="" class="nav-search">
+                  <div class="nav-search-button">
+                      <i class="nav-search-icon"></i>
+                  </div>
+                  <form>
+                      <div class="nav-search-inner">
+                          <input type="search" name="search" placeholder="Search..." />
+                      </div>
+                  </form>
+              </div>
+              <div *ngIf="hideHeader" class="nav-menus-wrapper">
+                  <ul class="nav-menu align-to-right">
+                      <li>
+                          <a href="#">Products</a>
+                          <div class="megamenu-panel">
+                              <div class="megamenu-lists">
+                                  <ul class="megamenu-list list-col-4">
+                                      <li class="megamenu-list-title">
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Asset-Classes">Asset Classes</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/investment-products/mutual-fund/">Mutual Funds</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/investment-products/sovereign-gold-bonds/">Sovereign Gold
+                                              Bonds</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Asset-Classes/Tax-Free-Bonds">Tax Free
+                                              Bonds</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Asset-Classes/Gold-Funds">Gold ETF</a>
+                                      </li>
+                                      <li>
+                                          <a
+                                              href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Asset-Classes/non-convertible-debentures">NCD</a>
+                                      </li>
+                                      <li>
+                                          <a
+                                              href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Asset-Classes/Stock-Lending-and-Borrowing-SLBM">Stock
+                                              Lending & Borrowing (SLBM)</a>
+                                      </li>
+                                      <li>
+                                          <a
+                                              href="https://www.kotaksecurities.com/investment-products/currency/?q=Our-Offerings/Asset-Classes/Currency-Derivatives">Currency</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Asset-Classes/Commodity">Commodity</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/investment-products/futures-and-options/">Futures & Options </a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ipo">IPO</a>
+                                          <!-- <a href="https://kstrade.kotaksecurities.com/preipo/">IPO</a> -->
+                                      </li>
+                                      <li><a href="https://www.kotaksecurities.com/margin_requirement/Cash_Segment_Margin_Required.html"
+                                              class="white_text">Securities accepted as Collateral</a></li>
+                                  </ul>
+                                  <ul class="megamenu-list list-col-4">
+                                      <li class="megamenu-list-title">
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Trading-Tools">Trading Tools</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/landing-page/trading-tools/kotak-stock-trading-app/index.html?q=Our-Offerings/Trading-Tools/Kotak-Stock-Trader-App">Kotak
+                                              Stock Trader</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features/Trade-Smart-Store-Intro">Trade
+                                              Smart Terminal</a>
+                                      </li>
+
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/our-offerings/trading-tools/keat-3.0">KEAT PRO X</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Trading-Tools/Website">Website</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Trading-Tools/Call-and-Trade">Call and
+                                              Trade</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/landing-page/margin-calculator/iframe.php">Margin Calculator</a>
+
+                                      </li>
+                                      <li><a href="https://www.kotaksecurities.com/brokerage-calculator/" class="white_text">Brokerage Calculator</a>
+                                      </li>
+                                      <li>
+                                          <a
+                                              href="https://www.kotaksecurities.com/offers/trading-tools/trading-api/index.html">Trading
+                                              APIs </a>
+                                      </li>
+                                  </ul>
+                                  <ul class="megamenu-list list-col-4">
+                                      <li class="megamenu-list-title">
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Account-Types">Account Types</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/account-types/demat-account">Demat Account</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/kotakpcg/index.html">Private Client Group (PCG)</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Account-Types/Two-in-One-Account">2 in 1
+                                              Account</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Account-Types/Trinity-3-in-1-account">Trinity
+                                              Account</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/nri-account/open-an-nri-account">NRI Account</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Account-Types/Foreign-Investors-QFI">Foreign
+                                              Investors (QFI)</a>
+                                      </li>
+                                  </ul>
+
+                                  <ul class="megamenu-list list-col-4">
+                                      <li class="megamenu-list-title">
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features">Value Added Features</a>
+                                      </li>
+                                      <li>
+                                          <a
+                                              href="https://smallcase.kotaksecurities.com/collection/6116961bf468c01c590feb9b">Ace
+                                              Portfolio (smallcase) </a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/landing-page/global-investment/index.html">Global Investing </a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/our-offerings/value-added-features/mis">Margin Intraday
+                                              Square off (MIS)</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://smallcase.kotaksecurities.com/">Stock Basket
+                                              (smallcase)</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features/Margin-Trading">Margin
+                                              Trading Facility</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features/Super-Multiple">Super
+                                              Multiple</a>
+                                      </li>
+                                      <li>
+                                          <a
+                                              href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features/Buy-Now-Sell-Tommrow">BNST</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features/Portfolio-Tracker">Portfolio
+                                              Tracker</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features/Capital-Gain-Report">Capital
+                                              gain report</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features/Stock-as-Margin" target="_blank">Use Stocks
+                                              as Margin</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Research/Knowledge-Bank/Investment-Knowlegde-Bank">Knowledge
+                                              Bank</a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <a href="#">Pricing</a>
+                          <div class="megamenu-panel single-drop-wrp">
+                              <div class="megamenu-lists">
+                                  <ul class="megamenu-list">
+                                      <li><a href="https://www.kotaksecurities.com/kotak-trade-free-plan/">Trade Free Plan</a></li>
+                                      <li><a href="https://www.kotaksecurities.com/landing-page/dealer_assisted_plan/" class="white_text">Dealer
+                                              Assisted Plan</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </li>
+
+                      <li>
+                          <a href="#">Research</a>
+                          <div class="megamenu-panel single-drop-wrp">
+                              <div class="megamenu-lists">
+                                  <ul class="megamenu-list">
+                                      <li><a href="https://www.kotaksecurities.com/financial-results/">ResultsExpress</a></li>
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/research/kotak-research-reports/top-weekly-picks"
+                                              class="white_text">Pick of the week</a></li>
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/research/kotak-research-reports/top-stock-picks"
+                                              class="white_text">Top Monthly Picks</a></li>
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/ResearchCall/Fundamental">Fundamental Call</a></li>
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/ResearchCall/Technical">Technical Call</a></li>
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/ResearchCall/Derivatives">Derivatives Call</a></li>
+                                      <li><a
+                                              href="https://www.kotaksecurities.com/ksweb/Research/Kotak-Research-Center/latest-stock-market-research-reports-tips-recommendations">Latest
+                                              Research Report</a></li>
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/research/research-events-webinars-workshops">Research
+                                              webinars</a></li>
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/Research/Kotak-Research-Reports">Sample Research Report</a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </li>
+
+                      <li>
+                          <a href="#">Help</a>
+                          <div class="megamenu-panel single-drop-wrp">
+                              <div class="megamenu-lists">
+                                  <ul class="megamenu-list">
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/Contact-Us">Contact Us</a></li>
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/faqs/Equity/equity-market-faqs" class="white_text">FAQ's</a></li>
+                                      <li><a href="https://kstrade.kotaksecurities.com/services/user/accounts/cnote.exe?action=pre_login_stmt_automation"
+                                              class="white_text">Get Your Account Statements</a></li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Help/Customer-Queries/Open-a-Trading-Account">Open an
+                                              Account</a>
+                                      </li>
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/Help/Demos">Demos</a></li>
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/Help/Forms">Forms</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </li>
+
+                      <li>
+                          <a href="#">More</a>
+                          <div class="megamenu-panel single-drop-wrp">
+                              <div class="megamenu-lists">
+                                  <ul class="megamenu-list">
+                                      <li><a href="https://www.kotaksecurities.com/landing-page/refer_earn/index.html" class="white_text">Refer and
+                                              Earn</a></li>
+                                      <li><a href="https://www.kotaksecurities.com/landing-page/SIPC/" class="white_text">Startup Engagement</a></li>
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/Research/Knowledge-Bank/Investment-Knowlegde-Bank">Kotak
+                                              University </a></li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Business-Associates">Partner with us</a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </li>
+
+                      <li class="bnt-lnk acc-log">
+                          <a href="#">Account Login</a>
+                          <div class="megamenu-panel single-drop-wrp mobile-drop-account">
+                              <div class="megamenu-lists">
+                                  <ul class="megamenu-list">
+                                      <li class="acc-logsub">
+                                          <a href="https://www.kotaksecurities.com/itrade/user/welcome.exe?action=chk_seckey_stat"
+                                              target="_blank">Login to Trade</a>
+                                      </li>
+                                      <li class="acc-logsub">
+                                          <a rel="noreferrer"
+                                              href="https://www.kotaksecurities.com/TSTerminal/Platform/Account/LogIn"
+                                              target="_blank">Login to TradeSmart Terminal</a>
+                                      </li>
+                                      <li class="acc-logsub">
+                                          <a rel="noreferrer"
+                                              href="https://www.kotaksecurities.com/landing-page/refer_earn/index.html"
+                                              target="_blank"><img
+                                                  src="../../../{{CommonBaseHref}}assets/images/Kotak/campaign-friendship.jpg"
+                                                  data-src="../../../{{CommonBaseHref}}assets/images/Kotak/campaign-friendship.jpg"
+                                                  class="img-responsive"></a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </li>
+
+                      <li class="bnt-lnk opn-acc">
+                          <a href="https://www.kotaksecurities.com/open-demat-account/" target="_blank">Open Demat Account</a>
+                      </li>
+                      <!-- <li *ngIf="IsLoggedIn" class="">
+                        <a><img src="../../../{{CommonBaseHref}}assets/images/Kotak/KotakLogout.svg" (click)="Logout()"/></a>
+                      </li> -->
+                  </ul>
+              </div>
+          </nav>
+      </div>
+  </div>
+</header>
+<div class="container-fluid">
+  <div class="row d-block">
+    <!-- <div class="banner">
+      <div class="container">
+        <div class="left">
+          <div class="t1">Whether Kotak Securities customer or a Guest user</div>
+          <h1 class="ipo-heading">Apply to IPOs in<br> a jiffy!</h1>
+		  <div class="ipo-banner">
+			<img src="../../../assets/images/Kotak/IPO-banner.png" class="img-responsive">
+		  </div>
+          </div>
+        <div class="right">
+          <div class="formWapper">
+            <h2><span>Open FREE</span> Demat & Trading A/c</h2>
+            <div class="lable">
+              <form autocomplete="off" [formGroup]="ACOForm">
+              <div class="name">Mobile No</div>
+                <input type="text" formControlName="ACMobileNo" class="input" maxlength="10"
+                  [ngClass]="{ 'is-invalid': ACOFormsubmitted && k.ACMobileNo.errors }"
+                  (keypress)="ValidatePattern('Number',$event)" (keyup)="ValidateAccMobile()" (paste)="OnPaste($event)" (drop)="OnDrop($event)"/>
+                <div *ngIf="ACOFormsubmitted && k.ACMobileNo.errors"
+                  class="invalid-feedback">
+                  <div *ngIf="k.ACMobileNo.errors.required">The mobile number seems incorrect. Please enter the correct number.</div>
+                  <div *ngIf="k.ACMobileNo.errors.pattern">The mobile number seems incorrect. Please enter the correct number.</div>
+                </div>
+              </form>
+            </div>
+            <span class="fw-med tc-ter-4 tooltip nesttip text-left d-inline-block">
+              <span class="tooltiptext">
+                  Please Note:- By submitting above details, you are authorising Kotak Securities / its sub-brokers/agents to call you &amp; send promotional communication even though you being registered
+                  under DNC. Also, all calls with KSL representatives may be recorded for internal quality &amp; training purposes.
+              </span>
+              Disclaimer
+          </span>
+            <input type="submit" name="submit" class="sbtn" value="OPEN FREE ACCOUNT" (click)="OnSubmitOpenFreeAccount()">
+            <div class="ResumeApplication">
+              <div class="col-xs-8 w6"><a href="https://kwik.kotaksecurities.com/kwik/Account/Login?ReturnUrl=%2Fkwik%2F" target="_blank">Resume Application?</a></div>
+              <div class="col-xs-4 w6"><a href="https://www.kotaksecurities.com/?screentype=weblink&amp;linkId=319&amp;title=IPO&amp;altURL=aHR0cHM6Ly93d3cua290YWtzZWN1cml0aWVzLmNvbS9pdHJhZGUvdXNlci9NYXJrZXRpbmcuZXhlP2FjdGlvbj1yZWRpcmVjdF9tZl9pcG8maWQ9MQ==" target="_blank" class="login">Login</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="container">
+      <div class="bannerbottomBox">
+        <ul>
+          <li>
+            <div class="Text">
+              <div class="icon"><img src="../../../{{CommonBaseHref}}assets/images/Kotak/icon1.png" width="66" height="66" alt="" /></div>
+              <div class="copy">Apply even if you don’t <br>
+                have an account with <br>
+                Kotak Securities</div>
+            </div>
+          </li>
+          <li>
+            <div class="Text">
+              <div class="icon"><img src="../../../{{CommonBaseHref}}assets/images/Kotak/icon2.png" width="66" height="66" alt="" /></div>
+              <div class="copy">Instant application<br>
+                via UPI</div>
+            </div>
+          </li>
+          <li>
+            <div class="Text">
+              <div class="icon"><img src="../../../{{CommonBaseHref}}assets/images/Kotak/icon3.png" width="66" height="66" alt="" /></div>
+              <div class="copy">Pay only when you are<br>
+                allotted the shares</div>
+            </div>
+          </li>
+        </ul>
+        <div class="top_layer"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="menu">
+      <div class="container">
+        <ul class="menuWrappBox">
+          <li><a href="#basic1">Ongoing IPOs</a></li>
+          <li><a href="#basic2">Upcoming IPOs</a></li>
+          <li><a href="#basic3">About to be Listed</a></li>
+          <li><a href="#basic4">Recently Listed</a></li>
+          <li><a href="#basic5">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container ">
+      <div class="sectionBox">
+        <div id="basic1" class="section bodytab">
+          <div class="heading mt-0 pt-2">
+            <h2>ONGOING <span>IPOs</span> </h2>
+          </div>
+          <div class="DataTable">
+            <div class="exborder">
+              <table class="TblOngoing">
+                <thead>
+                  <tr>
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Price Range (Rs.)</th>
+                    <th scope="col" class="exwidth">Min Qty</th>
+                    <th scope="col">Min Inv</th>
+                    <th scope="col" class="exwidth">RHP/DRHP</th>
+                    <th class="px-1">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of IPO_CurrentListData">
+                    <td data-label="Company Name"><a (click)="OpenCompanyURL(data)">{{data.COMPANY_NAME}}</a></td>
+                    <td data-label="Date">{{data.IssueStartDateDisplay}} to {{data.IssueEndDateDisplay}}</td>
+                    <td data-label="Price Range">₹ {{data.LowerPriceBand}} - ₹ {{data.UpperPriceBand}}</td>
+                    <td data-label="Min Qty">{{data.BidLot}}</td>
+                    <td data-label="Min Inv">₹ {{data.MinInvestment}}</td>
+                    <td data-label="RHP/DRHP"><a (click)="DownloadProductNote(data.COMPANY_ID)" class="link">View</a>
+                    </td>
+                    <td>
+                      <div class="btn TblBtnFirst" (click)="OnSubmitApplyIPO(data)">Apply now</div>
+                      <div class="btn" (click)="onTrackIPONCD(data.COMPANY_ID, data.IssueType,data.IssueEndDate,data.IssueAcceptanceTime,data.COMPANY_NAME)">Track</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- <a class="btn2" href="https://www.youtube.com/watch?v=CgAhi69c2hY" target="_blank">how to apply</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="sectionBox">
+        <div id="basic2" class="section bodytab">
+          <div class="heading">
+            <h2>UPCOMING <span>IPOs</span> </h2>
+          </div>
+          <div class="DataTable">
+            <div class="exborder">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Price Range (Rs.)</th>
+                    <th scope="col">Min Qty</th>
+                    <th scope="col">RHP/DRHP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of IPO_ForthcomingListData">
+                    <td data-label="Company Name"><a (click)="OpenCompanyURL(data)">{{data.COMPANY_NAME}}</a></td>
+                    <td data-label="Date">
+                      <span *ngIf="data.IssueStartDate == '01-01-099' || data.IssueStartDate == '01-01-199'">To be Announced</span>
+                      <span *ngIf="data.IssueStartDate != '01-01-099' && data.IssueStartDate != '01-01-199' && data.IssueStartDate != '01-01-01'">{{data.IssueStartDate}} to {{data.IssueEndDate}}</span>
+                    </td>
+                    <td data-label="Price Range">
+                      <span *ngIf="data.IssueStartDate == '01-01-099' || data.IssueStartDate == '01-01-199'">To be Announced</span>
+                      <span *ngIf="data.IssueStartDate != '01-01-099' && data.IssueStartDate != '01-01-199'">₹ {{data.LowerPriceBand}} - ₹ {{data.UpperPriceBand}}</span>
+                    </td>
+                    <td data-label="Min Qty">
+                      <span *ngIf="data.IssueStartDate == '01-01-099' || data.IssueStartDate == '01-01-199'">To be Announced</span>
+                      <span *ngIf="data.IssueStartDate != '01-01-099' && data.IssueStartDate != '01-01-199'">{{data.BidLot}}</span>
+                    </td>
+                    <td data-label="RHP/DRHP">
+                      <span *ngIf="data.IssueStartDate == '01-01-099'" class="TxtRightOnMobile">To be Announced</span>
+                      <a *ngIf="data.IssueStartDate != '01-01-099'" (click)="DownloadProductNote(data.COMPANY_ID)" class="link">View</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- <a class="btn2">How to check allotment status</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="sectionBox">
+        <div id="basic3" class="section bodytab">
+          <div class="heading">
+            <h2>About to be listed <span>IPOs</span> </h2>
+          </div>
+          <div class="DataTable">
+            <div class="exborder">
+              <table class="TblAboutToBeListed">
+                <thead>
+                  <tr>
+                    <th scope="col">Company Name</th>
+                    <th>Tentative Listing Date</th>
+                    <th>Price Range (Rs.)</th>
+                    <th>Subscription</th>
+                    <th>Allotment Status </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of AboutTo_ClosedListData">
+                    <td data-label="Company Name"><a (click)="OpenCompanyURL(data)">{{data.COMPANY_NAME}}</a></td>
+                    <td data-label="Listing Date">
+                      <div *ngIf="data.LISTDATE =='01-01-01'">To be Announced</div>
+                      <div *ngIf="data.LISTDATE !='01-01-01'">{{data.LISTDATE}}</div>
+                    </td>
+                    <!-- <td data-label="Listing Date">{{data.LISTDATE}}</td> -->
+                    <td data-label="Price Range">₹ {{data.LowerPriceBand}} - ₹ {{data.UpperPriceBand}} </td>
+                    <td data-label="Subscription">
+                      <div *ngIf="data.SubScription != ''">{{data.SubScription}} Times</div>
+                      <div *ngIf="data.SubScription == ''">0 Times</div>
+                    </td>
+                    <td>
+                      <a (click)="OpenAllotmentStatus(data.AllotemetStatus)" class="btn TblBtnFirst">Allotment Status</a>
+                      <a class="btn"
+                        (click)="onTrackIPONCD(data.COMPANY_ID, data.IssueType,data.IssueEndDate,data.IssueAcceptanceTime,data.COMPANY_NAME)">Track</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sectionBox ">
+        <div class="mobg"></div>
+        <div id="basic4" class="section bodytab">
+          <div class="heading bgheadding">
+            <h2>Recently Listed <span>IPOs</span> </h2>
+            <div class="filterbox">
+              <div class="searchBox">
+                <input type="text" class="input" placeholder="Search"
+                  (keyup)="SearchRecentlyListedIPO($event.target.value)">
+                <input type="button" class="btn" style="pointer-events: none;">
+              </div>
+              <div class="filtericonmobile"><img src="../../../{{CommonBaseHref}}assets/images/Kotak/icon-filter.png" alt="" /></div>
+              <form autocomplete="off" [formGroup]="ClosedIPOForm">
+                <div class="mobileBox">
+                  <div>
+                    <div class="DateBox datefrom">
+                      <div class="FromtoText">From</div>
+                      <input type="text" class="input DpFromDate" placeholder="DD / MM / YYYY"
+                        (keypress)="ValidatePattern('Date',$event)" (paste)="OnPaste($event)" (drop)="OnDrop($event)"
+                        [ngClass]="{ 'is-invalid': ClosedIPOFormSubmitted && r.FromDate.errors }">
+                      <input type="button" class="btn" style="pointer-events: none;">
+                    </div>
+                    <div *ngIf="ClosedIPOFormSubmitted && r.FromDate.errors" class="invalid-feedback">
+                      <div *ngIf="r.FromDate.errors.required">From date is required</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="DateBox">
+                      <div class="FromtoText">To</div>
+                      <input type="text" class="input DpToDate" placeholder="DD / MM / YYYY"
+                        (keypress)="ValidatePattern('Date',$event)" (paste)="OnPaste($event)" (drop)="OnDrop($event)"
+                        [ngClass]="{ 'is-invalid': ClosedIPOFormSubmitted && r.ToDate.errors }">
+                      <input type="button" class="btn" style="pointer-events: none;">
+                    </div>
+                    <div *ngIf="ClosedIPOFormSubmitted && r.ToDate.errors" class="invalid-feedback">
+                      <div *ngIf="r.ToDate.errors.required">To date is required</div>
+                    </div>
+                  </div>
+
+                  <input type="button" class="Submitbtn" (click)="OnSubmitIPOFilter()"
+                    [disabled]='ClosedIPOForm.invalid'>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="DataTable">
+            <div class="exborder">
+              <table class="TblRecentleListed">
+                <thead>
+                  <tr>
+                    <th scope="col">Company Name</th>
+                    <th scope="col" style="width: 130px">Issue Price (Rs.)</th>
+                    <th scope="col" style="width: 130px">Listing Price (Rs.)</th>
+                    <th scope="col" style="width: 130px">Listed on</th>
+                    <th scope="col" style="width: 149px">% Change on listing</th>
+                    <!-- <th scope="col">current trading price</th>
+                        <th scope="col" width="130px">&nbsp;</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of Recentaly_ClosedListDataSearch">
+                    <td data-label="Company Name"><a (click)="OpenCompanyURL(data)">{{data.COMPANY_NAME}}</a></td>
+                    <td data-label="Issue Price">₹ {{data.LowerPriceBand}} - {{data.UpperPriceBand}}</td>
+                    <td data-label="listing price">₹ {{data.ListedPrice}} </td>
+                    <td data-label="Listed on">{{data.LISTDATE}}</td>
+                    <td [ngClass]="data.Changes < 0?'ColorRed':'ColorGreen' " data-label="% gain on listing" class="">
+                      <span *ngIf="data.Changes != 0">{{data.Changes}}</span>
+                      <span *ngIf="data.Changes == 0">-</span>
+                    </td>
+                    <!-- <td data-label="current trading price">{{data.LowerPriceBand}} </td>
+                        <td scope="col"><a class="btn">Buy now</a></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div  class="sectionBox">
+        <div  class="ipoquestion">
+          <ul>
+            <li>
+              <h2>What is IPO ?</h2>
+              <p>Initial Public Offering (IPO) is the process in which a private company or corporation can become public by selling a portion of its stake to the investors.</p>
+            </li>
+            <li>
+              <h2>Who should Invest in IPO?</h2>
+              <p>There are no restrictions on who can apply for an IPO, The only prerequisite related to applying for IPOs is that you should hold a brokerage (Demat) account.</p>
+            </li>
+            <li>
+              <h2>What is the IPO application process?</h2>
+              <p>You can apply in IPO online either through ASBA (if you have a bank account with Kotak Securities/Bank) or you can apply through UPI facility.</p>
+            </li>
+            <li>
+              <h2>What is IPO subscription period?</h2>
+              <p>The IPO issue needs to be open for at least three working days, but not more than ten working days.</p>
+            </li>
+          </ul>
+        </div>
+        <div id="basic5" class="section bodytab">
+          <div class="heading faqtital">
+            <h2>FAQ<span>s</span></h2>
+          </div>
+          <div class="accordion_container cWt" itemscope="" itemtype="http://schema.org/FAQPage">
+<!--
+            <div itemprop="mainEntity" itemscope="" itemtype="http://schema.org/Question">
+              <div class="accordion_head" itemprop="name">How can you apply in an IPO?<span class="plusminus">-</span> </div>
+              <div class="accordion_body" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer" style="display: block;">
+                <div itemprop="text">
+                  <h4>You can apply in an IPO through 2 modes – ASBA or UPI</h4>
+                  <ul>
+                    <li>ASBA stands for Applications Supported by Blocked Amounts (ASBA). This facility is available if you are a Kotak customer and you can avail this facility through e-services or net banking.</li>
+                    <li>You can apply in IPO through UPI. If you are not a Kotak Bank customer or a guest user, you can apply in IPO through UPI.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+-->
+            <div itemprop="mainEntity" itemscope="" itemtype="http://schema.org/Question">
+              <div class="accordion_head" itemprop="name">How to apply in IPO through UPI?<span class="plusminus">+</span> </div>
+              <div class="accordion_body" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+                <div itemprop="text">
+                  <p>The process of applying online for shares in an IPO is very simple:</p>
+                  <ul>
+                  	<li>Step 1: Select the IPO that you want to invest in &amp; click on apply .</li>
+
+                    <li>Step 2: Verify mobile number , fill the application form and provide your UPI ID</li>
+                    
+                    <li>Step 3: Submit the application</li>
+                    
+                    <li>Step 4: Approve the block funds request on the UPI app.</li>
+                    
+				</ul>
+                </div>
+              </div>
+            </div>
+            <div itemprop="mainEntity" itemscope="" itemtype="http://schema.org/Question">
+              <div class="accordion_head" itemprop="name">Can I change/revise my bid for an online order?<span class="plusminus">+</span></div>
+              <div class="accordion_body" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+                <div itemprop="text">
+                  <p>Yes, you can change or revise the quantity or price in the bid for an online order. However, you cannot modify/revise during:</p>
+                  <ul>
+                    <li>Order is sent for processing</li>
+                    <li>Modification/ Revision / Cancellation are not allowed post cut-off time.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div itemprop="mainEntity" itemscope="" itemtype="http://schema.org/Question">
+              <div class="accordion_head" itemprop="name">Can I cancel my Bid for online IPO order ?<span class="plusminus">+</span> </div>
+              <div class="accordion_body" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+                <div itemprop="text">
+                  <p>Yes, you can cancel your bid for online order anytime before Modification/ Revision / Cancellation cut-off time</p>
+                </div>
+              </div>
+            </div>
+            <div itemprop="mainEntity" itemscope="" itemtype="http://schema.org/Question">
+              <div class="accordion_head" itemprop="name">What are the different types of investor categories?<span class="plusminus">+</span> </div>
+              <div class="accordion_body" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+                <div itemprop="text">
+                  <h4>Investors are broadly classified under following categories:</h4>
+                  <ul>
+                    <li>Retail individual Investor (RIIs)</li>
+                    <li>Non Institutional Investors (NIIs)</li>
+                    <li>Qualified Institutional Buyers (QIBs)</li>
+                  </ul>
+                  <p>"Retail individual investor" means an investor who applies or bids for securities for a value of not more than Rs. 2,00,000.</p>
+                </div>
+              </div>
+            </div>
+            <div itemprop="mainEntity" itemscope="" itemtype="http://schema.org/Question">
+              <div class="accordion_head" itemprop="name">Can I apply in IPO even if I don’t have an account with Kotak Securities?<span class="plusminus">+</span> </div>
+              <div class="accordion_body" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+                <div itemprop="text">
+                  <p>Yes, you can apply in IPO through Kotak Securities via UPI even if you don't have an account with us </p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row">
+        <div class="footer w-100">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12"> <a href="https://www.kotaksecurities.com/landing-page/disclaimer-list/index.html" target="_blank">*Terms and Conditions</a> | <a href="#">Disclaimer</a> </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+</div>
+<section class="footer-full">
+  <div class="container-1360-wrp">
+      <div class="sec_top">
+          <div class="main footer-disc">
+              <div *ngIf="hideFooter" class="footer-blog">
+                  <a href="javascript:void(0);" class="btn-arrow" type="button" data-toggle="collapse"
+                      data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></a>
+              </div>
+              <div *ngIf="hideFooter" class="fot_list brdb clearfix">
+                  <!-- <div class="sms-wrp">
+                      <p class="fot_hd">Stock Market Sectors :</p>
+                      <span>&nbsp; &nbsp; &nbsp; &nbsp;</span>
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/A"
+                          target="_blank" title="Stock Market Company Sectors Starting with A">A</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/B"
+                          target="_blank" title="Stock Market Company Sectors Starting with B">B</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/C"
+                          target="_blank" title="Stock Market Company Sectors Starting with C">C</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/D"
+                          target="_blank" title="Stock Market Company Sectors Starting with D">D</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/E"
+                          target="_blank" title="Stock Market Company Sectors Starting with E">E</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/F"
+                          target="_blank" title="Stock Market Company Sectors Starting with F">F</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/G"
+                          target="_blank" title="Stock Market Company Sectors Starting with G">G</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/H"
+                          target="_blank" title="Stock Market Company Sectors Starting with H">H</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/I"
+                          target="_blank" title="Stock Market Company Sectors Starting with I">I</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/J"
+                          target="_blank" title="Stock Market Company Sectors Starting with J">J</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/L"
+                          target="_blank" title="Stock Market Company Sectors Starting with L">L</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/M"
+                          target="_blank" title="Stock Market Company Sectors Starting with M">M</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/N"
+                          target="_blank" title="Stock Market Company Sectors Starting with N">N</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/O"
+                          target="_blank" title="Stock Market Company Sectors Starting with O">O</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/P"
+                          target="_blank" title="Stock Market Company Sectors Starting with P">P</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/R"
+                          target="_blank" title="Stock Market Company Sectors Starting with R">R</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/S"
+                          target="_blank" title="Stock Market Company Sectors Starting with S">S</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/T"
+                          target="_blank" title="Stock Market Company Sectors Starting with T">T</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/V"
+                          target="_blank" title="Stock Market Company Sectors Starting with V">V</a> |
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/ksweb/sectors-listed-in-BSE-and-NSE/W"
+                          target="_blank" title="Stock Market Company Sectors Starting with W">W</a> |
+                  </div> -->
+                  <div class="row mt-4">
+                      <div class="col-md-4 d-block AlignFooterBlock">
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <p class="fot_hd ftr-lkn-ttle">About Us</p>
+                                  <ul class="ftr-lnk">
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/About-Us/Why-Choose-Us">Why
+                                              Choose Us </a></li>
+                                      <li><a
+                                              href="https://www.kotaksecurities.com/ksweb/About-Us/Why-Choose-Us/About-Kotak-Securities">About
+                                              Kotak Securities</a></li>
+                                      <li><a
+                                              href="https://www.kotaksecurities.com/ksweb/About-Us/Why-Choose-Us/About-Kotak-Group">About
+                                              Kotak Group</a></li>
+                                      <li><a
+                                              href="https://www.kotaksecurities.com/ksweb/About-Us/Why-Choose-Us/Service">Service</a>
+                                      </li>
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/About-Us/Media">Media</a>
+                                      </li>
+                                      <li><a href="https://www.kotaksecurities.com/ksweb/About-Us/Careers">Careers</a>
+                                      </li>
+                                      <li><a
+                                              href="https://www.kotaksecurities.com/ksweb/About-Us/Careers/Current-Openings">Current
+                                              Openings</a></li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6">
+                                  <p class="fot_hd ftr-lkn-ttle">
+                                      <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Asset-Classes" class="ftr-links">Asset Classes</a>
+                                  </p>
+                                  <ul class="ftr-lnk">
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Asset-Classes/Tax-Free-Bonds">Tax Free
+                                              Bonds</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Asset-Classes/Gold-Funds">Gold ETF</a>
+                                      </li>
+                                      <li>
+                                          <a
+                                              href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Asset-Classes/Stock-Lending-and-Borrowing-SLBM">Stock
+                                              Lending & Borrowing (SLBM) </a>
+                                      </li>
+                                  </ul>
+                              </div>
+
+                              <div class="col-md-6">
+                                  <p class="fot_hd ftr-lkn-ttle">
+                                      <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Trading-Tools" class="ftr-links">Trading Tools</a>
+                                  </p>
+                                  <ul class="ftr-lnk">
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Trading-Tools/Website">Website</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-offerings/Trading-Tools/Keat-Pro-X">Keat pro X</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Trading-Tools/Kotak-Stock-Trader-App">Kotak
+                                              Stock Trader</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Trading-Tools/Call-and-Trade">Call and
+                                              Trade</a>
+                                      </li>
+                                      <li>
+                                          <a href="/landing-page/margin-calculator/iframe.php">Margin Calculator</a>
+                                      </li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6">
+                                  <p class="fot_hd ftr-lkn-ttle">
+                                      <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Account-Types" class="ftr-links">Account Types</a>
+                                  </p>
+                                  <ul class="ftr-lnk">
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/account-types/demat-account">Demat Account</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/kotakpcg/index.html">Private Client Group (PCG)</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Account-Types/Two-in-One-Account">2 in 1
+                                              Account</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Account-Types/Trinity-3-in-1-account">Trinity
+                                              Account</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/nri-account/open-an-nri-account">NRI Account</a>
+                                      </li>
+                                      <li>
+                                          <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Account-Types/Foreign-Investors-QFI">Foreign
+                                              Investors</a>
+                                      </li>
+                                  </ul>
+                              </div>
+
+                              <div class="clearfix"></div>
+                          </div>
+                      </div>
+
+                      <div class="col-md-2">
+                          <p class="fot_hd ftr-lkn-ttle">
+                              <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features" class="ftr-links">Value Added
+                                  Features</a>
+                          </p>
+                          <ul class="ftr-lnk frc-mb-20">
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features/Margin-Trading">Margin Trading
+                                      Facility</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features/Super-Multiple">Super
+                                      Multiple</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features/Buy-Now-Sell-Tommrow">BNST</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features/Portfolio-Tracker">Portfolio
+                                      Tracker</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features/Capital-Gain-Report">Capital Gain
+                                      Report</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/Our-Offerings/Value-Added-Features/Stock-as-Margin">Stock as
+                                      Margin</a>
+                              </li>
+
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/Research/Knowledge-Bank/Investment-Knowlegde-Bank">Knowledge
+                                      Bank</a>
+                              </li>
+                          </ul>
+
+                          <p class="fot_hd ftr-lkn-ttle">Help</p>
+                          <ul class="ftr-lnk frc-mb-20">
+                              <li><a href="https://www.kotaksecurities.com/ksweb/Contact-Us">Contact Us</a></li>
+                              <li><a href="https://www.kotaksecurities.com/landing-page/customer-support/" class="white_text">Support</a></li>
+                              <li><a href="https://kstrade.kotaksecurities.com/services/user/accounts/cnote.exe?action=pre_login_stmt_automation"
+                                      class="white_text">Get Your Account Statements</a></li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/Help/Customer-Queries/Open-a-Trading-Account">Open an account</a>
+                              </li>
+                              <li><a href="https://www.kotaksecurities.com/ksweb/Help/Demos">Demos</a></li>
+                              <li><a href="https://www.kotaksecurities.com/ksweb/Help/Forms">Forms</a></li>
+                          </ul>
+
+                          <p class="fot_hd ftr-lkn-ttle">More</p>
+                          <ul class="ftr-lnk">
+                              <li><a href="https://www.kotaksecurities.com/landing-page/SIPC" class="white_text">Startup Engagement</a></li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/Research/Knowledge-Bank/Investment-Knowlegde-Bank">Kotak University
+                                  </a>
+                              </li>
+                              <li><a href="https://www.kotaksecurities.com/ksweb/Business-Associates">Franchisee</a></li>
+                          </ul>
+                      </div>
+
+                      <div class="col-md-2">
+                          <p class="fot_hd ftr-lkn-ttle">Research</p>
+                          <ul class="ftr-lnk">
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/ResearchCall/">Live Research Calls</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/ResearchCall/Fundamental">Fundamental Call</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/ResearchCall/Technical">Technical Call</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/ResearchCall/Derivatives">Derivative Call</a>
+                              </li>
+                              <li><a href="https://www.kotaksecurities.com/ksweb/researchcall/SIP">SIP Call</a></li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/research/kotak-research-reports/top-stock-picks">Top Monthly
+                                      Picks</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/research/kotak-research-reports/top-weekly-picks">Pick of the
+                                      Week</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/Research/Kotak-Research-Center">Kotak Research Center</a>
+                              </li>
+                              <li>
+                                  <a
+                                      href="https://www.kotaksecurities.com/ksweb/research/Kotak-research-center/latest-stock-market-research-reports-tips-recommendations">Latest
+                                      research reports</a>
+                              </li>
+                              <li>
+                                  <a
+                                      href="https://www.kotaksecurities.com/ksweb//ksweb/research/kotak-research-center/research-reports-stock-tips-recommendations">Stock
+                                      Recommendations</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/research/research-events-webinars-workshops">Research Webinars</a>
+                              </li>
+                              <li>
+                                  <a href="https://www.kotaksecurities.com/ksweb/Research/Kotak-Research-Reports">Sample Research Report</a>
+                              </li>
+                          </ul>
+
+                          <p class="fot_hd ftr-lkn-ttle">
+                              <a href="https://www.kotaksecurities.com/landing-page/pricing/pricing.html" class="ftr-links">Pricing</a>
+                          </p>
+                      </div>
+
+                      <div class="col-md-4">
+                          <div class="cc-wrp-ftr">
+                              <div class="brdb custCare clearfix PB10">
+                                  <div class="">
+                                      <p class="ftr-lkn-ttle">Customer Care</p>
+                                      <div class="chat-mob-wrp">
+                                          <div class="row">
+                                              <div class="col-md-4">
+                                                  <div class="chat-box">
+                                                      <p>chat <span>with us</span></p>
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-8">
+                                                  <div class="mob-cvr">
+                                                      <a href="tel:77389 88888">77389 88888 <span>Just save this
+                                                              number and send us "Hi" on whatsapp.</span></a>
+                                                  </div>
+                                              </div>
+                                              <div class="clearfix"></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <p class="gl12 MT5">
+                                      For Customer Service, dial<br />
+                                      <span class="red-clr">1800 209 9191</span>
+                                  </p>
+
+                                  <p class="gl13 MT5">
+                                      Write to us at
+                                      <a href="mailto:service.securities@kotak.com">service.securities@kotak.com</a>
+                                      for Trading Account-related queries and
+                                      <a href="mailto:ks.demat@kotak.com">ks.demat@kotak.com</a>
+                                      for Demat Account-related queries
+                                  </p>
+                              </div>
+                              <div class="cstmr-time-wrp">
+                                  <p>
+                                      Call Centre Services
+                                      <span>All Days: 9:00 am to 6:00 pm</span>
+                                  </p>
+                                  <p>
+                                      Chat Services
+                                      <span>All Days: 8:00 am to 8:00 pm</span>
+                                  </p>
+                                  <p>
+                                      Call and Trade
+                                      <span>Mon to Fri: 8.30 am to 5.30 pm</span>
+                                  </p>
+                              </div>
+                              <div class="social_fot">
+                                  <span class="ftr-lkn-ttle">Connect with us</span>
+                                  <a rel="noreferrer" href="https://www.facebook.com/kotaksecurities"
+                                      title="Kotak Securities Facebook Page" class="fot_fb">
+                                      <img src="../../../{{CommonBaseHref}}assets/images/Kotak/facebook.png"
+                                          data-src="assets/images/facebook.png" alt="facebook-icon" />
+                                  </a>
+                                  <a rel="noreferrer" href="https://twitter.com/kotaksecurities"
+                                      title="Follow Kotak Securities on Twitter" class="fot_twet">
+                                      <img src="../../../{{CommonBaseHref}}assets/images/Kotak/twitter.png"
+                                          data-src="assets/images/twitter.png" loading="lazy" alt="twitter-icon" />
+                                  </a>
+                                  <a rel="noreferrer" href="https://www.youtube.com/user/KotakSecuritiesLtd"
+                                      title="Kotak Securities Official YouTube Channel" class="fot_youTube">
+                                      <img src="../../../{{CommonBaseHref}}assets/images/Kotak/youtube.png"
+                                          data-src="assets/images/youtube.png" loading="lazy" alt="youtube-icon" />
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="footer-detail collapse" id="collapseExample">
+                      <p class="wht12 MT5">
+                          No need to issue cheques by investors while subscribing to IPO. Just write the bank account
+                          number and sign in the application form to authorise your bank to make payment in case of
+                          allotment. No worries
+                          for refund as the money remains in investor's account.
+                      </p>
+                      <p class="wht12 MT5">
+                          KYC is one time exercise while dealing in securities markets - once KYC is done through a
+                          SEBI registered intermediary (broker, DP, Mutual Fund etc.), you need not undergo the same
+                          process again when you
+                          approach another intermediary. Attention Investors Prevent Unauthorized Transactions in your
+                          demat / trading account --> Update your Mobile Number/ email Id with your stock broker /
+                          Depository
+                          Participant. Receive information of your transactions directly from Exchanges on your mobile
+                          / email at the end of day and alerts on your registered mobile for all debits and other
+                          important transactions
+                          in your demat account directly from NSDL/ CDSL on the same day." - Issued in the interest of
+                          investors. Circular No.: NSDL/POLICY/2014/0094, NSE/INSP/27436, BSE - 20140901-21
+                      </p>
+                      <p class="wht12 MT5">
+                          Kindly note that as per NSE circulars nos: NSE/INVG/36333 dated November 17, 2017,
+                          NSE/INVG/37765 dated May 15.2018 and BSE circular nos: 20171117-18 dated November 17, 2017,
+                          20180515-39 dated May
+                          15.2018, trading in securities in which unsolicited messages are being circulated is
+                          restricted. The list of such stocks are available on the website of NSE & BSE. In case of
+                          any queries, request you to
+                          kindly get in touch with Customer Service on 18002099191
+                      </p>
+                      <p class="wht12 MT5">
+                          Kotak securities Ltd. having composite licence no.CA0268 is a Corporate Agent of Kotak
+                          Mahindra Life Insurance Company Limited and Kotak Mahindra General Insurance Company
+                          Limited. We have taken
+                          reasonable measures to protect security and confidentiality of the Customer information.
+                      </p>
+                      <p class="wht12 MT5">
+                          The Stock Exchange, Mumbai is not in any manner answerable, responsible or liable to any
+                          person or persons for any acts of omission or commission, errors, mistakes and/or violation,
+                          actual or perceived,
+                          by us or our partners, agents, associates etc., of any of the Rules, Regulations, Bye-laws
+                          of the Stock Exchange, Mumbai, SEBI Act or any other laws in force from time to time. The
+                          Stock Exchange, Mumbai
+                          is not answerable, responsible or liable for any information on this Website or for any
+                          services rendered by our employees, our servants, and us.
+                      </p>
+                      <p class="wht12 MT5">
+                          Please do not share your online trading password with anyone as this could weaken the
+                          security of your account and lead to unauthorized trades or losses. This cautionary note is
+                          as per Exchange circular
+                          dated 15th May, 2020.
+                      </p>
+                      <p class="wht12 MT5">
+                          Note: NSDL and CDSL have mapped Unique Client Codes (UCC) to demat accounts based on PAN,
+                          refer
+                          <a rel="noreferrer"
+                              href="https://nsdl.co.in/downloadables/pdf/2020-0070-Policy-Mapping%20of%20Unique%20Client%20Code%20(UCC)%20with%20demat%20accounts%20of%20the%20clients.pdf"
+                              target="_new">NSDL</a>
+                          and
+                          <a rel="noreferrer"
+                              href="https://www.kotaksecurities.com/pdf/dp-141-mapping-of-ucc-with-demat-account-16mar20.pdf"
+                              target="_new">CDSL</a>
+                          circulars. Format for linking/delinking the UCC: NSDL:
+                          <a rel="noreferrer"
+                              href="https://www.kotaksecurities.com/whatweoffer/PDF/ucc-linking-and-delinking-format1.pdf"
+                              target="_new">link</a>
+                          | CDSL:
+                          <a rel="noreferrer"
+                              href="https://www.kotaksecurities.com/whatweoffer/PDF/ucc-linking-and-delinking-format.pdf"
+                              target="_new">link</a>.
+                      </p>
+                      <p class="wht12 MT5">
+                          Clients are required to keep all their account related information up-to-date including
+                          details like email id, mobile number, address, bank details, demat details, income details
+                          etc. which will help the
+                          client to timely receive any information and to avail the various facilities relating to the
+                          Trading and Demat account. To update the details, client may get in touch with our
+                          designated customer service
+                          desk or approach the branch for assistance.
+                      </p>
+                      <p class="wht12 MT5">
+                          <strong>Introduction of Legal Entity Identifier(LEI) for Large Value Transactions:</strong>
+                          LEI is a 20-digit number used to uniquely identify parties to financial transactions
+                          worldwide. RBI has now
+                          decided to introduce the LEI system for all payment transactions of value Rs. 50 crore and
+                          above undertaken by entities (non-individuals) using Centralised Payment Systems viz. Real
+                          Time Gross Settlement
+                          (RTGS) and National Electronic Funds Transfer (NEFT). Such clients are required to provide
+                          the LEI number to us for updating it at KSL to avoid any disruptions in future payment when
+                          the threshold reaches
+                          to 50 crore and above. You may refer to the circular <a
+                              href="https://www.rbi.org.in/scripts/NotificationUser.aspx?Mode=0&Id=12010"
+                              target="_new">RBI NOTIFICATION</a>. In case of any queries, get in touch
+                          with our designated customer service desk.
+                      </p>
+                      <p class="wht12 MT5">
+                          <strong>
+                              <u>Investor Awareness regarding the revised guidelines on margin collection:-</u><br />
+                              Attention Investors :
+                          </strong>
+                          <br />
+                          1. Stock Brokers can accept securities as margin from clients only
+                          <strong>by way of pledge in the depository system w.e.f. September 1, 2020.</strong>
+                          <br />
+                          2. <strong>Update your mobile number & email Id</strong> with your stock broker/depository
+                          participant and receive OTP directly from depository on your email id and/or mobile number
+                          to create pledge.
+                          <br />
+                          3. <strong>Pay 20% upfront margin</strong> of the transaction value to trade in cash market
+                          segment. <br />
+                          4. Investors may please refer to the Exchange's
+                          <strong>
+                              Frequently Asked Questions (FAQs) issued vide circular reference NSE/INSP/45191 dated
+                              July 31, 2020, notice no. 20200731-7 dated July 31, 2020 and NSE/INSP/45534 dated August
+                              31, 2020, notice no.
+                              20200831-45 dated August 31, 2020
+                          </strong>
+                          and other guidelines issued from time to time in this regard.<br />
+                          5. Check your Securities /MF/ Bonds in the consolidated account statement issued by
+                          NSDL/CDSL every month.<br />
+                          <strong>.......... <u>Issued in the interest of Investors</u></strong>
+                      </p>
+                      <p class="wht12 MT5">
+                          <strong>Covid-19 impact to clients:-</strong><br />
+                          1. Applicable to clients on whose email id contract notes and other statements get bounced
+                          or who have opted for Physical contract notes/ other statements or Digital and Physical
+                          contract notes/ other
+                          statements :Due to the nationwide lockdown, we are unable send physical contract notes and
+                          other statements. To view them, log into
+                          <a href="https://www.kotaksecurities.com" target="_parent">www.kotaksecurities.com</a><br />
+                          2. Kindly update your email id with us to receive contract notes/various statements
+                          electronically to avoid any further inconvenience.<br />
+                          3. We are unable to issue the running account settlement payouts through cheque due to the
+                          lockdown. We request you to update your Bank account details to facilitate direct transfer
+                          to your linked bank
+                          account. You may approach our designated customer service desk or your branch to know the
+                          Bank details updation procedure.<br />
+                          4. Exchange advisory: Investors are advised to exercise caution while taking investment
+                          decisions in these unpredictable times. Clients are also encouraged to keep track of the
+                          underlying physical as well
+                          as international commodity markets. Clients are advised to undertake transactions after
+                          understanding the nature of the contractual relationship into which they are entering and
+                          the extent of its exposure
+                          to risk. Clients are further advised to follow sound risk management practices and not to be
+                          carried away by unfounded rumors, tips etc.
+                      </p>
+                      <p class="wht12 MT5">
+                          Under Interoperability, Kotak Securities has selected NSE Clearing Limited (NCL) as its
+                          designated clearing corporation for Cashand equity derivatives segment transactions and
+                          Indian Clearing Corporation
+                          Limited (ICCL) as its designated clearing corporation for currency derivatives segment
+                          transactions.
+                      </p>
+                      <p class="wht12 MT5">
+                          <strong>Important Update on PAN-Aadhaar linking</strong>: Kindly note that the deadline to
+                          link Aadhaar to PAN has been extended till 30th June, 2021. Read the notification
+                          <a href="https://pib.gov.in/PressReleasePage.aspx?PRID=1708786" target="_new">here</a>. In
+                          case of any queries, start instant Chat with our Customer Service team or WhatsApp 'Hi' on
+                          77389 88888 or email
+                          us at <a
+                              href="mailto:kscustomer.communications@kotak.com">kscustomer.communications@kotak.com</a>.
+                      </p>
+                      <p class="wht12 MT5">
+                          <strong>Filling complaints on SCORES- Easy & Quick</strong><br />
+                          a. Register on SCORES portal&nbsp; | &nbsp;b. Mandatory details for filling complaints on
+                          SCORES&nbsp;&nbsp;i. Name, PAN, Address, Mobile Number, E-mail ID&nbsp; | &nbsp;c.
+                          Benefits:&nbsp;&nbsp;i.
+                          Effective Communication&nbsp;&nbsp;ii. Speedy redressal of the grievances
+                      </p>
+                  </div>
+              </div>
+              <div *ngIf="hideFooter" class="fot_lrow cotserv-wrp">
+                  <p class="MT7 font_11">
+                      <a rel="noreferrer" href="https://www.kotaksecurities.com/pdf/ChargesOtherServices.pdf"
+                          title="Charges for Other Services" target="_new">Charges for Other Services</a>&nbsp; |
+                      &nbsp;
+                      <a href="https://www.kotaksecurities.com/ksweb/disclaimer" title="Kotak Securities Disclaimer">Disclaimer</a>&nbsp; | &nbsp; <a
+                          href="https://www.kotaksecurities.com/ksweb/Sitemap" title="Sitemap">Sitemap</a>&nbsp; | &nbsp;
+                      <a href="https://www.kotaksecurities.com/ksweb/terms-and-condition/privacy-security" title="Privacy & Security">Privacy &
+                          Security</a>&nbsp; | &nbsp;
+                      <a href="https://www.kotaksecurities.com/ksweb/256-bit-encryption" title="256 Bit Encryption">256 Bit Encryption</a>&nbsp; |
+                      &nbsp; <a href="http://www.bseindia.com/" rel="nofollow" title="BSE India"
+                          target="_new">BSE</a>&nbsp; | &nbsp;
+                      <a href="http://www.nseindia.com/" rel="nofollow" title="NSE India" target="_new">NSE</a>&nbsp;
+                      | &nbsp;<a href="http://www.msei.in/index.aspx" rel="nofollow" title="MSE"
+                          target="_new">MSE</a>&nbsp; | &nbsp;
+                      <a href="https://www.mcxindia.com/home" rel="nofollow" title="MCX" target="_new">MCX</a>&nbsp; |
+                      &nbsp; <a href="http://www.sebi.gov.in/" rel="nofollow" title="SEBI"
+                          target="_new">SEBI</a>&nbsp; | &nbsp;
+                      <a href="https://scores.gov.in/" rel="nofollow" title="SCORES" target="_new">SCORES</a>&nbsp; |
+                      &nbsp;
+                      <a href="https://www.kotaksecurities.com/ksweb/Anti-Money-Laundering-Measures" title="Anti Money Laundering Measures">Anti
+                          Money Laundering Measures</a>&nbsp; | &nbsp;
+                      <a href="https://www.kotaksecurities.com/ksweb/Important-Policies" title="Important Policies">Important Policies</a>&nbsp; |
+                      &nbsp;<a href="https://www.kotaksecurities.com/ksweb/Dos-and-donts" title="Dos and Don'ts">Dos & Donts</a>&nbsp; |
+
+                      &nbsp;<a href="http://www.kotaksecurities.com/pdf/GST.pdf"
+                          title="List of GST Registration Number" target="_new">List of GST Registration Number</a>
+                  </p>
+              </div>
+          </div>
+      </div>
+      <div *ngIf="hideFooter" class="row">
+          <div class="col-md-2">
+              <div class="ktk_logo_btm">
+                  <a href="https://www.kotaksecurities.com/ksweb">
+                      <img src="../../../{{CommonBaseHref}}assets/images/Kotak/logo.svg" class="img-responsive width100"
+                          data-src="../../../{{CommonBaseHref}}assets/images/Kotak/logo.svg" loading="lazy" alt="logo" />
+                  </a>
+              </div>
+          </div>
+          <div class="col-md-5">
+              <p class="wht12">
+                  <strong>&copy; 2005 Kotak Securities Limited.</strong>
+              </p>
+              <p class="wht12">
+                  Registered Office: 27 BKC, C 27, G Block, Bandra Kurla Complex, Bandra (E), Mumbai 400051. Telephone
+                  No.: +22 43360000, Fax No.: +22 67132430. Correspondence Address: Infinity IT Park, Bldg. No 21,
+                  Opp. Film City
+                  Road, A K Vaidya Marg, Malad (East), Mumbai 400097. Telephone No: 42856825.
+              </p>
+          </div>
+          <div class="col-md-5">
+              <p class="wht12">&nbsp;</p>
+              <p class="wht12">
+                  CIN: U99999MH1994PLC134051. SEBI Registration No: INZ000200137(Member of NSE, BSE, MSE, MCX &
+                  NCDEX), Kotak Securities Limited: AMFI-registered Mutual Fund Distributor. AMFI ARN: 0164, PMS
+                  INP000000258 and
+                  Research Analyst INH000000586.
+              </p>
+              <p class="wht12">NSDL/CDSL: IN-DP-NSDL-23-97</p>
+          </div>
+          <div class="clearfix"></div>
+      </div>
+  </div>
+</section>
+<div class="modal NewModal" id="IPOModalApply" appDisabledRightClick>
+  <div class="modal-dialog modal-dialog-centered MoreText">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button id="hideIcon" data-dismiss="modal">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0.209704 0.387101L0.292893 0.292893C0.653377 -0.0675905 1.22061 -0.0953204 1.6129 0.209704L1.70711 0.292893L8 6.585L14.2929 0.292893C14.6834 -0.0976309 15.3166 -0.0976309 15.7071 0.292893C16.0976 0.683418 16.0976 1.31658 15.7071 1.70711L9.415 8L15.7071 14.2929C16.0676 14.6534 16.0953 15.2206 15.7903 15.6129L15.7071 15.7071C15.3466 16.0676 14.7794 16.0953 14.3871 15.7903L14.2929 15.7071L8 9.415L1.70711 15.7071C1.31658 16.0976 0.683418 16.0976 0.292893 15.7071C-0.0976309 15.3166 -0.0976309 14.6834 0.292893 14.2929L6.585 8L0.292893 1.70711C-0.0675905 1.34662 -0.0953204 0.779392 0.209704 0.387101L0.292893 0.292893L0.209704 0.387101Z"
+              fill="#2B3133" fill-opacity="0.6" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M20.0001 3.33161C29.2062 3.33161 36.6693 10.7947 36.6693 20.0009C36.6693 29.207 29.2062 36.6701 20.0001 36.6701C10.7939 36.6701 3.33081 29.207 3.33081 20.0009C3.33081 10.7947 10.7939 3.33161 20.0001 3.33161ZM20.0001 5.83161C12.1746 5.83161 5.83081 12.1754 5.83081 20.0009C5.83081 27.8263 12.1746 34.1701 20.0001 34.1701C27.8255 34.1701 34.1693 27.8263 34.1693 20.0009C34.1693 12.1754 27.8255 5.83161 20.0001 5.83161ZM19.994 17.4993C20.6268 17.4988 21.1501 17.9688 21.2333 18.5788L21.2448 18.7484L21.2508 27.9178C21.2513 28.6081 20.692 29.1681 20.0016 29.1686C19.3688 29.169 18.8455 28.6991 18.7623 28.089L18.7508 27.9194L18.7448 18.7501C18.7444 18.0597 19.3036 17.4997 19.994 17.4993ZM20.0008 11.6696C20.9201 11.6696 21.6652 12.4148 21.6652 13.3341C21.6652 14.2533 20.9201 14.9985 20.0008 14.9985C19.0816 14.9985 18.3364 14.2533 18.3364 13.3341C18.3364 12.4148 19.0816 11.6696 20.0008 11.6696Z"
+            fill="#0D4582" />
+        </svg>
+        <h2>Important message</h2>
+        <p>
+          IF you are an existing customer of Kotak Securities - kindly login on <a href="https://www.kotaksecurities.com">https://www.kotaksecurities.com</a> and apply.
+        <br> <br>
+        If you are NOT an existing customer of Kotak Securities and wish to apply to IPOs as a Guest user (using your
+        existing bank and demat account) - Please ensure you DO NOT submit multiple applications for to an IPO in same
+        category, else there is a risk of all of your applications being rejected by the issuer.
+        </p>
+        <br/>
+        <button type="button" data-dismiss="modal" (click)="OnSubmitApplyIPOPopUp()" class="CursorPointer">Proceed</button>
+        <button type="button" data-dismiss="modal" class="CursorPointer">Cancel</button>
+        <label id="lblipocompany" hidden></label>
+      </div>
+    </div>
+  </div>
+</div>

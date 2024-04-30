@@ -1,0 +1,217 @@
+<app-ipo-header></app-ipo-header>
+<div class="MainBg IPO_Section">
+    <div class="container MainInnerFormWithoutFlexOnlyOuter MainOuter">
+        <div >
+            <div>
+                <div class="BoxShadow bg-white">
+                    <div class="SectionTopHeading_IPO text-center">
+                        <div class="MainHeading">Initial Public Offering - IPO</div>
+                        <div class="SubHeading">Easily track any IPO details below</div>
+                    </div>
+                    <div class="SectionInnerData">
+                        <div>
+                            <ul class="nav nav-tabs IpoNavTabs">
+                                <li>
+                                    <a class="active show" data-toggle="tab" href="#IPO_Current">Current</a>
+                                    <!-- <span class="badge">2</span> -->
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#IPO_Forthcoming">Forthcoming</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#IPO_Closed">Closed</a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    <div class="tab-content">
+                        <div id="IPO_Current" class="tab-pane fade show active">
+                            <table class="CommonTable TblCurrForth">
+                                <thead>
+                                    <tr>
+                                        <th>Company Name</th>
+                                          <th *ngIf="G_UserType==2 ||G_UserType==1" class="text-center">Bid Status</th>
+                                          <th *ngIf="G_UserType==2 ||G_UserType==1" class="text-center">Allotment Status</th>
+                                        <th>Price Band</th>
+                                        <th>Open Date</th>
+                                        <th>Close Date</th>
+                                        <th class="text-center">Product Note</th>
+                                        <th class="text-center"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of IPO_CurrentListData">
+                                        <td>{{data.COMPANY_NAME}}</td>
+                                        <td *ngIf="G_UserType==2 ||G_UserType==1" class="text-center CursorPointer" (click)='ViewBidStatus(data.COMPANY_ID,"I")'>View</td>
+                                        <td *ngIf="G_UserType==2 || G_UserType==1" class="text-center CursorPointer">View</td>
+                                        <td>{{data.LowerPriceBand}} - {{data.UpperPriceBand}}</td>
+                                        <td>{{data.IssueStartDate.substring(0,10)}}</td>
+                                        <td>{{data.IssueEndDate.substring(0,10)}}</td>
+                                            <td class="text-center PointerCursor"><i class="fa fa-file-pdf-o" aria-hidden="true" (click)="DownloadProductNote(data.ProductNoteBase64)"></i></td>
+                                            <td class="text-center BtnClsTrack">
+                                                <button (click)="OnSubmitApplyIPO(data.COMPANY_ID)">Apply</button>
+                                                <button *ngIf="G_UserType!=2 && G_UserType!=1" (click)="onTrackIPONCD(data.COMPANY_ID, data.IssueType)">Track</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="IPO_Forthcoming" class="tab-pane fade">
+                                <table class="CommonTable TblCurrForth">
+                                    <thead>
+                                        <tr>
+                                            <th>Company Name</th>
+                                            <th>Price Band</th>
+                                            <th>Open Date</th>
+                                            <th>Close Date</th>
+                                            <th class="text-center">Product Note</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of IPO_ForthcomingListData">
+                                            <td>{{data.COMPANY_NAME}}</td>
+                                            <td>{{data.LowerPriceBand}} - {{data.UpperPriceBand}}</td>
+                                            <td>{{data.IssueStartDate.substring(0,10)}}</td>
+                                            <td>{{data.IssueEndDate.substring(0,10)}}</td>
+                                            <td class="text-center PointerCursor"><i class="fa fa-file-pdf-o" aria-hidden="true" (click)="DownloadProductNote(data.ProductNoteBase64)"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="IPO_Closed" class="tab-pane fade">
+                                <table class="CommonTable TblClosed">
+                                    <thead>
+                                        <tr>
+                                            <th>Company Name</th>
+                                            <th *ngIf="G_UserType!=3" class="text-center">Bid Status</th>
+                                            <!-- <th *ngIf="G_UserType!=3" class="text-center">Allotment Status</th> -->
+                                            <th>Last Trading Price (Rs.)</th>
+                                            <th>Listed On</th>
+                                            <th>Issue Price (Rs.)</th>
+                                            <th>Change % After Listing</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of IPO_ClosedListData">
+                                            <td>{{data.COMPANY_NAME}}</td>
+                                            <td *ngIf="G_UserType!=3" class="text-center CursorPointer" (click)="onTrackIPONCD(data.COMPANY_ID, 'I')">View</td>
+                                            <!-- <td *ngIf="G_UserType!=3" class="text-center CursorPointer">View</td> -->
+                                            <td>{{data.PrevCloseAmount}} </td>
+                                            <td>{{data.LISTDATE.substring(0,10)}}</td>
+                                            <td>{{data.ListedPrice}}</td>
+                                            <td [ngClass]="data.Changes < 0?'ColorRed':'ColorGreen' ">{{data.Changes}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="BoxShadow bg-white GridGapTop">
+                    <div class="SectionTopHeading_IPO text-center">
+                        <div class="MainHeading">Non Convertible Debenture - NCD</div>
+                        <div class="SubHeading">Easily track any NCD details below</div>
+                    </div>
+                    <div class="SectionInnerData">
+                        <div>
+                            <ul class="nav nav-tabs IpoNavTabs">
+                                <li>
+                                    <a class="active show" data-toggle="tab" href="#NCD_Current">Current</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#NCD_Forthcoming">Forthcoming</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#NCD_Closed">Closed</a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    <div class="tab-content">
+                        <div id="NCD_Current" class="tab-pane fade show active">
+                            <table class="CommonTable TblCurrForth">
+                                <thead>
+                                    <tr>
+                                        <th>Company Name</th>
+                                        <th *ngIf="G_UserType==2 ||G_UserType==1" class="text-center">Bid Status</th>
+                                        <th *ngIf="G_UserType==2 ||G_UserType==1" class="text-center">Allotment Status</th>
+                                        <th>Face Value</th>
+                                        <th>Open Date</th>
+                                        <th>Close Date</th>
+                                        <th class="text-center">Product Note</th>
+                                        <th class="text-center"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of NCD_CurrentListData">
+                                        <td>{{data.COMPANY_NAME}}</td>
+                                        <td *ngIf="G_UserType==2 ||G_UserType==1" class="text-center CursorPointer" (click)='ViewBidStatus(data.COMPANY_ID,"B")'>View</td>
+                                        <td *ngIf="G_UserType==2 ||G_UserType==1" class="text-center CursorPointer">View</td>
+                                        <td>{{data.facevalue}}</td>
+                                        <td>{{data.IssueStartDate.substring(0,10)}}</td>
+                                        <td>{{data.IssueEndDate.substring(0,10)}}</td>
+                                        <td class="text-center PointerCursor"><i class="fa fa-file-pdf-o" aria-hidden="true" (click)="DownloadProductNote(data.ProductNoteBase64)"></i></td>
+                                            <td class="text-center BtnClsTrack">
+                                                <button (click)="OnSubmitApplyIPO(data.COMPANY_ID)">Apply</button>
+                                                <button *ngIf="G_UserType!=2 && G_UserType!=1" (click)="onTrackIPONCD(data.COMPANY_ID, data.IssueType)">Track</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="NCD_Forthcoming" class="tab-pane fade">
+                                <table class="CommonTable TblCurrForth">
+                                    <thead>
+                                        <tr>
+                                            <th>Company Name</th>
+                                            <th>Issue Price</th>
+                                            <th>Open Date</th>
+                                            <th>Close Date</th>
+                                            <th class="text-center">Product Note</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of NCD_ForthcomingListData">
+                                            <td>{{data.COMPANY_NAME}}</td>
+                                            <td>{{data.LowerPriceBand}} - {{data.UpperPriceBand}}</td>
+                                            <td>{{data.IssueStartDate.substring(0,10)}}</td>
+                                            <td>{{data.IssueEndDate.substring(0,10)}}</td>
+                                            <td class="text-center PointerCursor"><i class="fa fa-file-pdf-o" aria-hidden="true" (click)="DownloadProductNote(data.ProductNoteBase64)"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="NCD_Closed" class="tab-pane fade">
+                                <table class="CommonTable TblClosed">
+                                    <thead>
+                                        <tr>
+                                            <th>Company Name</th>
+                                            <th *ngIf="G_UserType!=3" class="text-center">Bid Status</th>
+                                            <th *ngIf="G_UserType!=3" class="text-center">Allotment Status</th>
+                                            <th>Listed On</th>
+                                            <th>Issue Price (Rs.)</th>
+                                            <th>Change % After Listing</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of NCD_ClosedListData">
+                                            <td>{{data.COMPANY_NAME}}</td>
+                                            <td *ngIf="G_UserType!=3" class="text-center CursorPointer">View</td>
+                                            <td *ngIf="G_UserType!=3" class="text-center CursorPointer">View</td>
+                                            <td>{{data.LISTDATE.substring(0,10)}}</td>
+                                            <td>{{data.ListedPrice}}</td>
+                                            <td [ngClass]="data.Changes < 0?'ColorRed':'ColorGreen' ">{{data.Changes}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

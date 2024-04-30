@@ -1,0 +1,18 @@
+.BidSuccess h5{
+    color:#1EB386;   
+}
+.BidPending h5{
+    color:#D29419;
+}
+.BidCancelled h5{
+    color:#FA474D;
+}
+.pending{
+    color: orange;
+  }
+  .reject{
+    color: red;
+  }
+  .accept{
+    color: green;
+  }

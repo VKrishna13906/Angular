@@ -1,0 +1,48 @@
+<!-- Order Result Start -->
+<div class="order-result-main position-relative">
+  <div class="container">
+    <!-- Show & Hide as per condition -->
+    <div *ngIf="TrinityFlag == 'Y'" class="mandate-result mandate-done text-center pt-5">
+      <img src="../../../../assets/images/mandate-done.png" class="img-fluid mx-auto" alt="">
+      <div class="order-result-heading mb-5">
+        <h2 class="text-success text-bold roboto-bold mb-3">Order placed successfully!</h2>
+        <h5 class="text-primary text-regular roboto-regular">
+          <span>Application No: </span>
+          <span>{{ApplicationNo}}</span>
+        </h5>
+      </div>
+
+
+      <div class="order-result-details mx-500 mx-220 mx-auto">
+        <p class="h4 text-primary text-regular roboto-regular mb-4"><span></span><span>{{KotakMessage}}</span> 
+        <!-- <p class="h4 text-primary text-regular roboto-regular mb-4"><span>&#8377;</span><span>{{AppliedAmount}}</span>  -->
+          <!-- blocked in your linked a/c within 1 working day.
+          Please maintain sufficient balance. -->
+           <!-- will be blocked in your linked a/c within one working day after the closure of the issue; please maintain sufficient balance. -->
+        </p>
+      </div>
+    </div>
+    <div *ngIf="TrinityFlag == 'N'" class="mandate-result mandate-pending text-center pt-5">
+      <img src="../../../../assets/images/mandate-pending.png" class="img-fluid mx-auto" alt=""> <!--./assets/images/mandate-pending.png"-->
+      <div class="order-result-heading mb-5">
+        <h2 class="text-primary text-bold roboto-bold mb-3">Order Received, Mandate Pending.</h2>
+        <h5 class="text-primary text-regular roboto-regular">
+          <span>Application No: </span>
+          <span>{{ApplicationNo}}</span>
+        </h5>
+      </div>
+      <div class="order-result-details mx-500 mx-220 mx-auto">
+         <p class="h4 text-primary text-regular roboto-regular mb-4">You will receive a mandate request by the end of the
+          day of ₹ 
+          <span>&#8377;</span><span>{{AppliedAmount}}</span> on your UPI app.
+        </p>
+        <p class="h4 text-primary text-regular roboto-regular">Please authorise the mandate to confirm your bid.</p> 
+        <!-- <p class="h4 text-primary text-regular roboto-regular">To successfully complete the IPO application, please ensure that you authorize the mandate on your UPI App before 5 pm on {{IPOEndate}}</p>  -->
+      </div>
+    </div>
+    <div class="review-bid-btn btn-control text-center pb-3">
+      <button type="button" class="btn btn-blue" (click)="backToHome()">Back to Home Page</button>
+    </div>
+  </div>
+</div>
+<!-- Order Result End -->

@@ -1,0 +1,34 @@
+<header class="header_area">
+    <div class="main_header_area animated">
+        <div class="container-1360-wrp">
+<!-- <nav class="navbar p-0 BoxShadow" role="navigation" [style.min-height]="NavHeight"> -->
+    <nav class="navbar pl-1 pt-0" role="navigation">
+    <div class="container p-0">
+        <a class="nav-brand" (click)="OnClickDashboard()" routerLinkActive='active'>
+            <img class="img-responsive logo_img" [src]='logo'>
+            <!-- <div *ngIf="showCompanyImg" class="Poweredby">Powered by</div> -->
+        </a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" *ngIf="!IsMobile">
+                <a class="nav-link" (click)="OnClickDashboard()" routerLinkActive='active'>Dashboard</a>
+            </li>
+            <li class="nav-item" *ngIf="G_UserType == 1">
+                <a class="nav-link" routerLink='/ipo/ordertradebook' routerLinkActive='active'>Report</a>
+            </li>
+            <li class="nav-item" *ngIf="G_UserType == 1">
+              <a (click)="openModal()" class="nav-link" routerLinkActive='active'>Client Search</a>
+          </li>
+        </ul>
+        <ul *ngIf="G_UserType == 1">
+            <li *ngIf="IsLoggedIn" class="logout CursorPointer">
+                <a><img src="../../../{{CommonBaseHref}}assets/images/Kotak/KotakLogout.svg" (click)="Logout()"/></a>
+              </li>
+        </ul>
+        <a *ngIf="showCompanyImg" class="nav-brand" style="pointer-events: none;">
+            <img src="../../../{{CommonBaseHref}}assets/images/Kotak/{{CompanyLogo}}.png" class="img-responsive logo_img CoBrandLogo">
+        </a>
+    </div>
+</nav>
+        </div>
+    </div>
+</header>

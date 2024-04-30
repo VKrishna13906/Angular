@@ -1,0 +1,102 @@
+<app-ipo-header></app-ipo-header>
+<div class="MainBg">
+    <div class="MainInnerFormWithoutFlex mt-0" style="background-color: transparent;">
+       
+        <form [formGroup]="IPOViewMoreform" (ngSubmit)="onSubmitIPOViewMore()">
+        <div class="GridRow2 GridGapTop">
+            <div class="TopMost">
+                <div class="SectionTopHeading">
+                    <!-- <span><img src="../../{{CommonBaseHref}}assets/images/IPO.svg" class="svg" width="25px" /> -->
+                        NCD
+                        <!-- <img class="CommonInfoIconSmall ml-2" src="../../{{CommonBaseHref}}assets/images/InfoIcon_Gray.svg" tooltip="Information of Top Current Holdings on the basis of Transactions data feed files which are uploaded in the system." autoPlacement="true" [max-width]="220" [displayTouchscreen]="true" [tooltip-class]="'CommonTooltip'"/>
+                    </span> -->
+                </div>
+                <div class="row row ml-2 mt-4">
+                    <div class="col-md-3 col-sm-6 col-xs-12 InputBoxOuter DdlInv">
+                        <div class="has-float-label">
+                        <select id="IssueName" formControlName="IssueName"  class="form-control CommonSelectBox TbxMarginBtm CustomSelectIssueName" 
+                        [ngClass]="{ 'is-invalid': IPOViewMoreformsubmited && f.IssueName.errors }"> 
+                        <option value="0">Select Issue Name</option>                                
+                        <option *ngFor="let IL of IssueList" [value]="IL.VALUEFIELD">{{IL.TEXTFIELD}}</option>
+                        </select>
+                        <label>Issue Name</label>
+                        <div *ngIf="IPOViewMoreformsubmited && f.IssueName.errors" class="invalid-feedback">
+                            <div *ngIf="f.IssueName.errors.required">Please Select Issue Name</div>
+                        </div>
+                        </div>
+                    </div>
+                <div class="col-md-2 col-sm-6 col-xs-12 InputBoxOuter">
+                    <div class="has-float-label">
+                    <input type="text" id="FromDate" formControlName="FromDate"
+                        [ngClass]="{ 'is-invalid': IPOViewMoreformsubmited && f.FromDate.errors }"
+                        class="form-control CommonTextBox TbxMarginBtm clsDatePickerFromDate clsCommonDatePicker"
+                         placeholder="&nbsp;" />
+                    <label for="FromDate">Open Date</label>
+                   
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 col-xs-12 InputBoxOuter">
+                    <div class="has-float-label">
+                    <input type="text" formControlName="ToDate" id="ToDate"
+                        [ngClass]="{ 'is-invalid': IPOViewMoreformsubmited && f.ToDate.errors }"
+                        class="form-control CommonTextBox TbxMarginBtm clsDatePickerToDate clsCommonDatePicker" placeholder="&nbsp;" />
+                        <label for="ToDate">Close Date</label>
+                   
+                    </div>
+
+                </div>
+                <div class="col-md-2 col-sm-6 col-xs-12 InputBoxOuter">
+                    <button class="CommonSubmitButton sm"> Search </button>
+                </div>
+                <div class="col-md-2 col-sm-6 col-xs-12 InputBoxOuter">
+                    <button class="CommonSubmitButton sm" (click)='ClearControl()'> Clear </button>
+                </div>
+            </div>
+                <div class="tab-content TabContentData pt-0">
+                    <table id="NCDDataTable" class="CommonTable ">                       
+                        <thead>
+                            <tr>
+                                <th>Issue Name</th>                                
+                                <th>Open Date</th>
+                                <th>Close Date</th>
+                                <th>Face Value</th>
+                                <th >Bid Status</th>
+                                <th>Allotment Status</th>
+                                <th>Listing Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr *ngFor="let i of NCDList">
+                                <td>{{i.COMPANY_NAME}}</td>
+                                <td>{{i.Opendate}}</td>
+                                <td>{{i.Closedate}}</td>
+                                <td>{{i.Facevalue}}</td>
+                                <td>
+                                    <span class="CursorPointer">
+                                        <a (click)="ViewBidStatus(i.COMPANY_ID);" class='hovereffect'  routerLinkActive='active'>View</a>
+                                    </span>
+                                    <!-- <a routerLink='/ipo/BidStatus' routerLinkActive='active'>View</a>                                -->
+                                </td>
+                                <td >
+                                    <a routerLink='/ipo/AllotmentReport' routerLinkActive='active'>View</a>                               
+                                </td>
+                                <td>{{i.ListingDate}}</td>                              
+                                <td>{{i.IssueStatus}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>
+                   
+                </p>
+                </div>
+            </div>
+        </div>
+</form>
+       
+
+    </div>
+    <div>
+
+    </div>
+</div>

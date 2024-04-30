@@ -1,0 +1,70 @@
+<section class="basic-details-main bg-white">
+  <div class="container">
+    <div class="card">
+      <!-- <div class="card-heading">
+        <h3 class="text-primary text-bold roboto-bold">Issue Details</h3>
+      </div> -->
+      <div class="card-body pt-0">
+        <div class="bid-detail-list ipo-data-list">
+          <div class="py-0 ClsNew">
+            <div *ngFor="let d of data" class="bid-detail-content">
+              <div class="px-0 pt-0 ClsNew">
+                <div class="d-flex align-items-center justify-content-between mb-1">
+                  <!-- <h4 class="company-name" title="{{d.COMPANY_NAME}}">
+                    <a class="text-primary text-regular roboto-regular NoUrl">{{d.COMPANY_NAME}}</a>
+                  </h4> -->
+                  <h4 *ngIf="d.COMPANY_NAME.length <= 20" class="company-name">
+                    <a  class="text-primary text-regular roboto-regular NoUrl">{{d.COMPANY_NAME}}</a>
+                  </h4>
+                  <h4 *ngIf="d.COMPANY_NAME.length > 20" class="company-name" title="{{d.COMPANY_NAME}}">
+                    <a  class="text-primary text-regular roboto-regular NoUrl">{{d.COMPANY_NAME.slice(0,20)}}...</a>
+                  </h4>
+                  <h4 class="text-primary text-regular roboto-regular">
+                    <span>&#8377;{{d.LowerPriceBand}}</span> -
+                    <span>&#8377;{{d.UpperPriceBand}}</span>
+                  </h4>
+                </div>
+                <div class="d-flex align-items-center justify-content-between mb-1">
+                  <div class="d-flex align-items-center">
+                    <span class="h6 text-gray text-medium roboto-medium text-uppercase">LOT SIZE</span>
+                    <img src="./assets/images/icons/briefcase.svg" class="img-fluid px-1 Briefcase" alt="Briefcase" />
+                    <span class="h6 text-gray text-medium roboto-medium">{{d.BidLot}}</span>
+                  </div>
+                  <span class="h6 text-gray text-medium roboto-medium">ISSUE SIZE - &#8377;{{d.TotalSize}} CR</span>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                  <span class="h6 text-gray text-medium roboto-medium">{{d.IssueStartDateDisplay}} - {{d.IssueEndDateDisplay}}</span>
+                  <!-- <span class="h6 text-gray text-medium roboto-medium"><span>&#8377;</span>{{d.TotalSize}} CR</span> -->
+                </div>
+              </div>
+              <div *ngIf="CategoryData.length > 0" class="ClsNew">
+                <h5 class="text-primary text-medium roboto-bold text-uppercase mb-2">discount</h5>
+                <div *ngFor="let dis of CategoryData">
+                  <div class="d-flex align-items-center justify-content-between mb-1">
+                    <span class="h6 text-primary text-regular roboto-regular text-capitalize">{{dis.name | titlecase}}</span>
+                    <span class="h6 text-gray text-medium roboto-medium">
+                      <span>&#8377;</span>
+                      <span>{{dis.value}}</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="pb-0 ClsNew">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a *ngIf="d.CompanyURL != '' && d.CompanyURL != undefined && d.CompanyURL != null" (click)="OpenCompanyURL(d.CompanyURL)" class="d-flex align-items-center">
+                    <h5 class="text-secondary text-medium roboto-medium mr-2">Company Details</h5>
+                    <img src="./assets/images/icons/export-icon.svg" class="img-fluid ExportIcon" alt="Export">
+                  </a>
+                  <a *ngIf="d.DraftProsepectNotePath != '' && d.DraftProsepectNotePath != undefined && d.DraftProsepectNotePath != null" (click)="DownloadProductNote(d.COMPANY_ID,d.DraftProsepectNotePath)" class="d-flex align-items-center">
+                    <h5 class="text-secondary text-medium roboto-medium mr-2">View {{d.DraftProsepectNotePath}}</h5>
+                    <img src="./assets/images/icons/export-icon.svg" class="img-fluid ExportIcon" alt="Export">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

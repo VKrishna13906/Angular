@@ -1,0 +1,12 @@
+<nav *ngIf='CompanyName == "Mahindra" || CompanyName =="YesSecurities" || CompanyName =="SPA" || CompanyName =="investedu"' class="navbar p-0 NavbarBg" role="navigation" [style.min-height]="NavHeight">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand LogoAnchorClass logo1">
+                <img *ngIf="CompanyName != 'Mahindra'" class="logo_img" [src]='logo' [style.width]="logoWidth"
+                    [style.height]="logoHeight">
+                <img *ngIf="CompanyName == 'Mahindra'" style="padding: 0 !important;" class="logo_img" [src]='logo'
+                    [style.width]="logoWidth" [style.height]="logoHeight">
+            </a>
+        </div>
+    </div>
+</nav>

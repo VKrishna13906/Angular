@@ -1,0 +1,142 @@
+<!-- <header class="header_area">
+    <div class="main_header_area animated">
+        <div class="container-1360-wrp">
+            <nav id="navigation1" class="navigation">
+                <div class="nav-header">
+                    <a class="nav-brand" routerLink='/' routerLinkActive='active'>
+                        <img [src]='logo' class="img-responsive" alt="logo" />
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header> -->
+<!-- -->
+<!-- <nav class="navbar p-0 BoxShadow" role="navigation" [style.min-height]="NavHeight">
+    <div class="container p-0">
+        <a class="navbar-brand" routerLink='/' routerLinkActive='active'>
+            <img class="logo_img" [src]='logo' [style.width]="logoWidth" [style.height]="logoHeight">
+        </a>
+    </div>
+</nav> -->
+<!-- <div class="container-fluid odaBenifits banner-wrp" style="background:#f1f4f7;">
+	<div class="row">
+    	<div class="container">
+        	<div class="row">
+        		<div class="col-lg-12 text-center">
+                    <h2>Thank you for applying for {{CompanyName}} with Kotak Securities</h2>
+                    <h2>To successfully apply for an IPO, please ensure that you authorise the UPI mandate once it is received on your UPI app</h2>
+                </div>
+                <div class="col-lg-12 text-center">
+                	<div class="Order-apply">
+                    	<h2 class="ipo-order">Below are the details of your IPO application:</h2>
+                        <div class="application-order">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="order-details">
+                                <tbody>
+                                    <tr>
+                                        <td>Name:</td>
+                                        <td>{{ClientName}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>UPI Id:</td>
+                                        <td>{{UPIId}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Application No.:</td>
+                                        <td>{{ApplicationNo}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bid Quantity</td>
+                                        <td>{{BidQuantity}} shares</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="no-border">Bid Amount</td>
+                                        <td class="no-border">&#8377; {{BidAmount}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 text-center sub-head">
+                    <div class="zeroImgWrp">
+                    	<div class="upgrade-btn">
+                        	<a href="https://www.kotaksecurities.com/open-demat-account/" class="btn btn-primary btn-upgrade" target="_self">Open an Account </a>
+                   		</div>
+                    </div>
+                </div>
+                <div class="col-lg-12 text-center sub-head">
+                    <p>Open a Trade Free with us in a jiffy and avail of the following benefits:-</p>
+                </div>
+                <div class="col-lg-12 text-center">
+                	<ul class="sBoxWrp">
+                    	<li>
+                        	<div class="odaBox">
+                            	<div class="odaBoxIcon cr"><img src="../../../{{CommonBaseHref}}assets/images/Kotak/oda_img5.png" alt="" /></div>
+                                <div class="boxinfo">
+                                    <h3 class="desktop">Complete waiver of brokerage on intraday trades</h3>
+                                    <h3 class="mobile">Complete waiver of brokerage on intraday trades</h3>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                        	<div class="odaBox">
+                            	<div class="odaBoxIcon ss"><img src="../../../{{CommonBaseHref}}assets/images/Kotak/oda_img2.png" alt=""/></div>
+                                <div class="boxinfo">
+                                    <h3 class="desktop">All other carry forward trades @ Rs. 20/- only per order</h3>
+                                    <h3 class="mobile">All other carry forward trades @ Rs. 20/- only per order</h3>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                        	<div class="odaBox">
+                            	<div class="odaBoxIcon kl"><img src="../../../{{CommonBaseHref}}assets/images/Kotak/oda_img1.png" alt=""/></div>
+                                <div class="boxinfo">
+                                    <h3 class="desktop">Research Reports<br>and stock recommendations</h3>
+                                    <h3 class="mobile">Research Reports<br>and stock recommendations</h3>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-12 text-center sub-head">
+                    <p>Weekly webinars on topics such as product details, platforms, market performance, top stocks to invest in, and much more</p>
+                    <div class="zeroImgWrp">
+                        <a routerLink='/' routerLinkActive='active' class="backtopage">Return on Home page </a>
+                    </div>
+                </div>
+            </div>   
+		</div>
+    </div>
+</div> -->
+
+<!-- ------- same as order result page----- -->
+<!-- Order Result Start -->
+<div class="order-result-main position-relative">
+    <div class="container">
+      <!-- Show & Hide as per condition -->
+      
+      <div  class="mandate-result mandate-pending text-center pt-5">
+        <img src="../../../../preipo/assets/images/mandate-pending.png" class="img-fluid mx-auto" alt=""> <!--./assets/images/mandate-pending.png"-->
+        <div class="order-result-heading mb-5">
+          <h2 class="text-primary text-bold roboto-bold mb-3">Order Received, Mandate Pending.</h2>
+          <h5 class="text-primary text-regular roboto-regular">
+            <span>Application No: </span>
+            <span>{{ApplicationNo}}</span>
+          </h5>
+        </div>
+        <div class="order-result-details mx-500 mx-auto">
+           <!-- <p class="h4 text-primary text-regular roboto-regular mb-4">You will receive a mandate request by the end of the
+            day of ₹ 
+            <span>&#8377;</span><span>{{AppliedAmount}}</span> on your UPI app.
+          </p>
+          <p class="h4 text-primary text-regular roboto-regular">Please authorise the mandate to confirm your bid.</p>  -->
+           <p class="h4 text-primary text-regular roboto-regular">To successfully complete the IPO application, please ensure that you authorize the mandate on your UPI App before 5 pm on {{IPOEndate}}</p>  
+        </div>
+      </div>
+      <div class="review-bid-btn btn-control text-center pb-3">
+        <button type="button" class="btn btn-blue" (click)="backToHome()">Back to Home Page</button>
+      </div>
+    </div>
+  </div>
+  <!-- Order Result End -->

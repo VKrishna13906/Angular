@@ -1,0 +1,36 @@
+<div class="ipo-main bg-light">
+  <app-page-heading></app-page-heading>
+  <div class="custome-tabs ipo-tabs position-relative">
+    <tabset class="tabset">
+      <tab heading="IPO" >
+        <app-ipo-banner></app-ipo-banner>
+        <!-- <div *ngIf="ClientCode != ''" class="py-3 pb-lg-2 bg-white mb-3"> -->
+        <div *ngIf="G_UserType == 1 && ClientCode != '' && SSOLogin != '10'" class="py-3 pb-lg-2 bg-white mb-3">
+          <div class="container">
+            <div class="d-flex align-items-center justify-content-between pb-2">
+              <h4 class="text-primary text-medium roboto-medium">Client Code</h4>
+              <h4 class="text-primary text-medium roboto-medium">{{ClientCode}}</h4>
+            </div>
+          </div>
+        </div>
+        <app-ipo-accordion [InputData]='data'></app-ipo-accordion>
+      </tab>
+      <tab heading="Reports" [active]="this.selectedTab" (selectTab)="ShowReport()">
+        <!-- <app-reports *ngIf="IsShowReport" [InputData]='data'></app-reports> -->
+        <app-reports [InputData]='data'></app-reports>
+      </tab>
+    </tabset>
+
+    <div class="snackbar-main" *ngIf="bidAddInApp" #snackbar>
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+          <h4 class="text-white text-regular roboto-regular">Your order is added to My Applications.</h4>
+          <div>
+            <a href="javascript:void(0);" class="text-uppercase text-medium roboto-medium"
+              [routerLink]="['/ipo']">DISMISS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

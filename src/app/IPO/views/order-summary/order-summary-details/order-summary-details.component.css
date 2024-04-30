@@ -1,0 +1,38 @@
+.CustomLi .rr{
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.CustomLi .rr:last-child{
+    border-bottom: none;
+}
+ul.first,ul.second{
+    padding-left: 17px;
+}
+ul.first li{
+    list-style: square;
+}
+ul.second li{
+    list-style: disc;
+}
+.TCModalBody{
+    max-height: 400px;
+    overflow-y: auto;
+}
+.SummaryCbx.form-group.custome-checkbox label:before{
+    position: relative !important;
+}
+.SummaryCbx.form-group.custome-checkbox label{
+    padding-left: 0 !important;
+}
+.CbxCustom{
+    height: 20px;
+    width: 18px;
+    margin-right: 5px;
+}
+a.link {
+    color: #007bff;
+}
+a.link:hover {
+    color: #0056b3;
+}
+

@@ -1,0 +1,30 @@
+<section class="filter-popup popup-main pb-lg-3">
+  <div class="container">
+    <div class="card-heading position-relative">
+      <h2 class="text-secondary text-bold roboto-bold pr-4">Client Search</h2>
+      <a href="javascript:void(0);" class="close-popup clear-search" (click)="modalClose()"></a>
+    </div>
+    <form [formGroup]="clientDetailsForm" autocomplete="off">
+      <div class="row mt-4">
+        <div class="col-md-12 InputBoxOuter">
+          <div class="has-float-label">
+            <input type="text" class="form-control CommonTextBox TbxMarginBtm" id="clientCode" autofocus="true"
+              formControlName="clientCode" required minlength="5" maxlength="10" placeholder="&nbsp;" 
+              [ngClass]="{ 'is-invalid': clientDetailsForm && k.clientCode.errors }"
+              (keypress)="ValidatePattern('NumberandCharc',$event)"> <!--(paste)="OnPaste($event)" (drop)="OnDrop($event)"-->
+            <label for="clientCode">Client Code</label>
+            <div *ngIf="clientDetailsFormSearch && k.clientCode.errors" class="invalid-feedback">
+              <div *ngIf="k.clientCode.errors.required">Please enter client code.</div>
+              <div *ngIf="k.clientCode.errors.pattern">Please enter valid client code.</div>
+              <div *ngIf="k.clientCode.errors.minlength">Client code must be at least 5 alpha numeric characters long.</div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="row"></div>
+      <div class="text-center">
+        <button type="button" (click)="SearchClient()" class="CommonSubmitButton">Search</button>
+      </div>
+    </form>
+  </div>
+</section>

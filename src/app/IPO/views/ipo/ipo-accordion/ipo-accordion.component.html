@@ -1,0 +1,32 @@
+<div class="ipo-accordion">
+  <accordion [isAnimated]="true" [closeOthers]="true">
+    <accordion-group [isOpen]="true">
+      <div accordion-heading class="d-flex align-items-center">
+        <button class="btn btn-link pr-0">Ongoing IPOs</button>
+        <span class="badge badge-gray">{{IPO_CurrentListData_Length}}</span>
+      </div>
+      <app-ipo-ongoing [data]="IPO_CurrentListData"></app-ipo-ongoing>
+    </accordion-group>
+    <accordion-group (click)="ShowUpcomingIPOs()">
+      <div accordion-heading class="d-flex align-items-center">
+        <button class="btn btn-link pr-0">Upcoming IPOs</button>
+        <span class="badge badge-gray">{{IPO_ForthcomingListData_Length}}</span>
+      </div>
+      <app-ipo-upcoming *ngIf="IsShowUpcomingIPOs" [data]="IPO_ForthcomingListData"></app-ipo-upcoming>
+    </accordion-group>
+    <accordion-group (click)="ShowMyApplication()">
+      <div accordion-heading class="d-flex align-items-center">
+        <button class="btn btn-link pr-0">My Applications</button>
+        <span class="badge badge-gray">{{MyAppCount}}</span>
+      </div>
+      <app-ipo-applications *ngIf="IsShowMyApplication" [InputData]='InputData'></app-ipo-applications>
+      <!--(MyApplicationCount)="MyApplicationCount($event)"-->
+    </accordion-group>
+    <accordion-group (click)="ShowRecentlyListedIPOs()">
+      <div accordion-heading class="d-flex align-items-center">
+        <button class="btn btn-link pr-0">Recently Listed IPOs</button>
+      </div>
+      <app-ipo-recent-list *ngIf="IsShowRecentlyListedIPOs" [data]="Recentaly_ClosedListData"></app-ipo-recent-list>
+    </accordion-group>
+  </accordion>
+</div>

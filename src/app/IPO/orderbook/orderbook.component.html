@@ -1,0 +1,161 @@
+<app-ipo-header></app-ipo-header>
+<ul class="breadcrumb">
+    <li><a routerLink="/ipo/dashboardmain" routerLinkActive="active">Dashboard</a></li>
+    <li><a routerLink="/ipo/BidStatus" routerLinkActive="active">Bid Status</a></li>
+    <li>Order Trade Book</li>
+</ul>
+<div class="MainBg">
+    <div class="MainInnerFormWithoutFlex mt-0" style="background-color: transparent;">
+
+        <form [formGroup]="IPOOrderbookform" (ngSubmit)="onSubmitIPOOrderbook()">
+            <div class="GridRow2">
+                <div class="TopMost">
+                    <div class="SectionTopHeading">
+                        <!-- <span><img src="../../{{CommonBaseHref}}assets/images/IPO.svg" class="svg" width="25px" /> -->
+                        Order Trade Book
+                        <!-- <img class="CommonInfoIconSmall ml-2" src="../../{{CommonBaseHref}}assets/images/InfoIcon_Gray.svg" tooltip="Information of Top Current Holdings on the basis of Transactions data feed files which are uploaded in the system." autoPlacement="true" [max-width]="220" [displayTouchscreen]="true" [tooltip-class]="'CommonTooltip'"/>
+                    </span> -->
+                    </div>
+                    <div class="px-3">
+                        <div class="row mt-4">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 InputBoxOuter">
+                                <div class="has-float-label">
+                                    <select formControlName="IssueType"
+                                        class="form-control CommonSelectBox TbxMarginBtm CustomSelectIssueType"
+                                        [ngClass]="{ 'is-invalid': IPOOrderbookformsubmited && i.IssueType.errors }">
+                                        <option value="" disabled>Select Issue Type</option>
+                                        <option value="I">IPO</option>
+                                        <option value="B">NCD</option>
+                                    </select>
+                                    <label>Issue Type</label>
+                                    <div *ngIf="IPOOrderbookformsubmited && i.IssueType.errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="i.IssueType.errors.required">Please select Issue Type.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 InputBoxOuter DdlInv">
+                                <div class="has-float-label">
+                                    <select id="IssueName" formControlName="IssueName"
+                                        class="form-control CommonSelectBox TbxMarginBtm CustomSelectIssueName"
+                                        [ngClass]="{ 'is-invalid': IPOOrderbookformsubmited && i.IssueName.errors }">
+                                        <option value="all">All</option>
+                                        <option *ngFor="let IL of IssueList" [value]="IL.VALUEFIELD">{{IL.TEXTFIELD}}
+                                        </option>
+                                    </select>
+                                    <label for="IssueName">Company Name</label>
+                                    <div *ngIf="IPOOrderbookformsubmited && i.IssueName.errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="i.IssueName.errors.required">Please Select Issue Name</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 InputBoxOuter" (click)="clickDisa(0)">
+                                <div class="has-float-label">
+                                    <input type="text" formControlName="ApplicationNo" id="ApplicationNo"
+                                        class="form-control CommonTextBox TbxMarginBtm" maxlength="10" autocomplete="off"
+                                        oninput="this.value = this.value.toUpperCase()" placeholder="&nbsp;" />
+                                    <!-- [ngClass]="{ 'is-invalid': IPOOrderbookformsubmited && f.PANNo.errors }" -->
+
+                                    <label for="ApplicationNo">Application No </label>
+                                    <!-- <div *ngIf="IPOOrderbookformsubmited && f.PANNo.errors" class="invalid-feedback">
+                                <div *ngIf="f.PANNo.errors.pattern">Please Enter Valid Application No.</div>
+                            </div> -->
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 InputBoxOuter" (click)="clickDisa(0)">
+                                <div class="has-float-label">
+                                    <input [type]="changeType?'password' : 'text'" formControlName="PANNo" id="PANNo"
+                                        class="form-control CommonTextBox TbxMarginBtm" maxlength="10"
+                                        oninput="this.value = this.value.toUpperCase()" placeholder="&nbsp;" autocomplete="off" />
+                                    <!-- [ngClass]="{ 'is-invalid': IPOOrderbookformsubmited && f.PANNo.errors }" -->
+                                    <label for="PANNo">PAN No </label>
+                                    <span class="eyeicon" (click)="viewPass()">
+                                        <div *ngIf="visiblePass">
+                                            <img src="../../../preipo/assets/images/showeyeicon.png"
+                                                class="floatingImage">
+                                        </div>
+                                        <div *ngIf="!visiblePass">
+                                            <img src="../../../preipo/assets/images/hideeyeicon.png"
+                                                class="floatingImage">
+                                        </div>
+                                    </span>
+                                    <!-- <div *ngIf="IPOOrderbookformsubmited && f.PANNo.errors" class="invalid-feedback">
+                                <div *ngIf="f.PANNo.errors.pattern">Please Enter Valid PAN No.</div>
+                            </div> -->
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-2 col-sm-4 col-xs-12 InputBoxOuter">
+                                <button class="CommonSubmitButton"> Search </button>
+                            </div>
+
+                            <div class="col-md-2 col-sm-4 col-xs-12 InputBoxOuter">
+                                <button class="CommonSubmitButton" (click)='ClearControl()'> Clear </button>
+                            </div>
+                            <div class="col-md-1 col-sm-4 col-xs-12 InputBoxOuter"
+                                *ngIf="IsShowExportToExcel && G_UserType == 1">
+                                <button class="BtnCommon BtnGreen BtnExport mt-2" (click)='ExportToExcel()'>
+                                    <img src="../../{{CommonBaseHref}}assets/images/Excel_Export.svg"
+                                        class="ExportToIcon" type="image/svg+xml" fill="#fff" width="12px"
+                                        pluginspage="http://www.adobe.com/svg/viewer/install/" /></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content TabContentData pt-0">
+                        <table id="IPODataTable" class="CommonTable ">
+                            <thead>
+                                <tr>
+                                    <th>Issue Name </th>
+                                    <th>Applicant Name</th>
+                                    <th>App. No</th>
+                                    <th>PAN No</th>
+                                    <th>BID ID</th>
+                                    <th>Price </th>
+                                    <th>Quantity</th>
+                                    <th>Amount</th>
+                                    <th>DP & Client Id </th>
+                                    <th>Client Code</th>
+                                    <th>Account No./UPI ID</th>
+                                    <th>Category</th>
+                                    <th>Status</th>
+                                    <th>Remark</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let i of IPOList">
+                                    <td>{{i.COMPANY_NAME}}</td>
+                                    <td>{{i.FirstApplicant}}</td>
+                                    <td>{{i.ApplicationNo}}</td>
+                                    <td>{{ValueMasking(i.FirstApplicantPAN,'PAN')}}</td>
+                                    <!-- <td>{{i.FirstApplicantPAN}}</td> -->
+                                    <td>{{i.BidID}}</td>
+                                    <td>{{i.Biding}}</td>
+                                    <td>{{i.Quantity}} </td>
+                                    <td>{{i.Amount}} </td>
+                                    <td>{{i.ClientID}}</td>
+                                    <td>{{i.ClientCode}}</td>
+                                    <td>{{i.UPIID}}</td>
+                                    <td>{{i.CATEGORY}}</td>
+                                    <td>{{i.Status}}</td>
+                                    <td>{{i.Remarks}}</td>
+                                </tr>
+                            </tbody>
+                            <tbody *ngIf="IPOList.length == 0">
+                                <tr class="NoRecordFound NoRecordFoundAlignTable">
+                                    <td colspan="12">
+                                        <div>No Record Found</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+
+</div>

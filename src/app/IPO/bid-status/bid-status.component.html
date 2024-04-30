@@ -1,0 +1,79 @@
+<app-ipo-header></app-ipo-header>
+    <ul class="breadcrumb">
+        <li><a routerLink="/ipo/dashboardmain" routerLinkActive="active">Dashboard</a></li>
+        <li>Bid Status</li>
+      </ul>
+<div class="MainBg">
+    <div class="MainInnerFormWithoutFlex mt-0" style="background-color: transparent;">
+        <div class="GridRow2">
+            <div class="TopMost">
+                <div class="SectionTopHeading">
+                    <!-- <span><img src="../../{{CommonBaseHref}}assets/images/BidStatus.svg" class="svg" width="25px" /> -->
+                    Bid Status
+                    <!-- <img class="CommonInfoIconSmall ml-2" src="../../{{CommonBaseHref}}assets/images/InfoIcon_Gray.svg" tooltip="Information of Top Current Holdings on the basis of Transactions data feed files which are uploaded in the system." autoPlacement="true" [max-width]="220" [displayTouchscreen]="true" [tooltip-class]="'CommonTooltip'"/>
+                    </span>                 -->
+                </div>
+                <form [formGroup]="IPOBindingstatusform">
+                    <div class="GridGapTop pt-0">
+                        <div class="row ml-2">
+                            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 InputBoxOuter">
+                                <div class="has-float-label">
+                                    <select formControlName="Issue"
+                                        class="form-control CommonSelectBox TbxMarginBtm CustomSelectIssueType"
+                                        [ngClass]="{ 'is-invalid': IPOBindingstatussubmitted && i.Issue.errors }">
+                                        <option value="" disabled>Select Issue Type</option>
+                                        <option value="I">IPO</option>
+                                        <option value="B">NCD</option>
+
+                                    </select>
+                                    <label>Select Issue Type </label>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 InputBoxOuter">
+                                <div class="has-float-label">
+                                    <select formControlName="Issue"
+                                        class="form-control CommonSelectBox TbxMarginBtm CustomSelectIssueName"
+                                        [ngClass]="{ 'is-invalid': IPOBindingstatussubmitted && i.Issue.errors }">
+                                        <option value="" disabled>Select Issue Name</option>
+                                        <option *ngFor="let isu of IssueNameList" [value]="isu.VALUEFIELD">
+                                            {{isu.TEXTFIELD}}
+                                    </select>
+                                    <label>Select Issue Name </label>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content TabContentData pt-0">
+                        <table id="IPODataTable" class="CommonTable ">
+                            <thead>
+                                <tr>
+                                    <th>Issue Status</th>
+                                    <th class="text-right">ASBA</th>
+                                    <th class="text-right">UPI</th>
+                                    <th class="text-right">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="IPOList.length > 0">
+                                <tr *ngFor="let i of IPOList">
+                                    <td>{{i.Status}}</td>
+                                    <td class="CursorPointer text-right" (click)="GOTOOrderTradeBook(i.SRNO,'ASBA')">{{i.OfflineCount}}</td>
+                                    <td class="CursorPointer text-right" (click)="GOTOOrderTradeBook(i.SRNO,'UPI')">{{i.OnlineCount}}</td>
+                                    <td class="CursorPointer text-right" (click)="GOTOOrderTradeBook(i.SRNO,'ALL')">{{i.TotalCount}}</td>
+                                </tr>
+                            </tbody>
+                            <tbody *ngIf="IPOList.length == 0">
+                                <tr class="NoRecordFound NoRecordFoundAlignTable">
+                                    <td colspan="4">
+                                        No Record Found
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

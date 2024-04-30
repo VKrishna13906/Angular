@@ -1,0 +1,7 @@
+.ipo-data-list .ClsNew:last-of-type {
+    border-bottom: 0;
+}
+.ipo-data-list .ClsNew {
+    padding: 15px 0 15px;
+    border-bottom: rgba(0, 0, 0, 0.05) 1px solid;
+}

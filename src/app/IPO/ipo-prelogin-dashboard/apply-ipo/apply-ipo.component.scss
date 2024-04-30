@@ -1,0 +1,334 @@
+@import '../../../../CssVariables';
+
+.IpoDetailsOuter{
+    .IpoHead{
+        display: grid;
+    grid-template-columns: 130px 1fr;
+    grid-column-gap: 20px;
+    .IpoHeadName{
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+            .IpoHeadNameMain{
+                font-size: 20px;
+                font-family: $fontFamilyBold;
+                text-transform: uppercase;
+            }
+            .IpoHeadNameSub{
+                text-transform: capitalize;
+                color: $body_color_gray;
+            }
+        }
+    }
+    .IpoDesc{
+        // text-align: justify;
+        margin: 30px 0 10px;
+    }
+}
+.IpoDetails{
+    .IpoDetailsInner{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 20px;
+    }
+    .BorderTop{
+        border-top: 1px solid rgb(169 175 175 / 20%);
+    margin: 20px 0;
+    }
+    // .CommonTable{
+    //     border: 1px solid $primary_color;
+    
+    //     thead tr th{
+    //         font-size: 14px;
+    //         padding: 12px 10px;
+    //         color: #fff;
+    //         background-color: $primary_color;
+    //         border-bottom: none !important;
+    //     }
+    //     tbody tr{
+    //         border: 1px solid $primary_color;
+    //         background-color: #fafafa;
+    //         td {
+    //             font-size: 14px;
+    //             vertical-align: middle;
+    //         }
+    //     } 
+    // }
+}
+
+.toggle-switch {
+    height: 20px;
+    width: 34px;
+    display: inline-block;
+    position: relative;
+    input {
+      display: none;
+      &:checked + .slider {
+        background-color: $primary_color;
+      }
+      &:checked + .slider::after {
+        -webkit-transform: translateX(14px);
+        -ms-transform: translateX(14px);
+        transform: translateX(14px);
+      }
+    }
+    .slider {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: grey;
+      transition: .2s;
+      border-radius: 50px;
+      &::after {
+        position: absolute;
+        content: '';
+        height: 12px;
+        width: 12px;
+        background-color: white;
+        left: 4px;
+        bottom: 4px;
+        transition: .2s;
+        border-radius: 50px;
+      }
+    }
+  }
+  .EnableCutoff{
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+  }
+  .SmallText{
+    font-size: 12px;
+    color: $body_color_gray;
+    line-height: 23px;
+}
+.VeryBigText{
+    font-size: 18px;
+    line-height: 26px;
+    color: #212121;
+    font-family: $fontFamilyBold;
+}
+.IpoSectionTopHeading{
+    font-size: 30px;
+    font-family: $fontFamilyBold;
+    text-align: center;
+}
+.IPOTabs{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; */
+    text-align: center;
+    height: 88px;
+    border-bottom: transparent;
+    position: relative;
+    li.nav-item {
+        width: 33.33%;
+        position: relative;
+    display: block;
+    pointer-events: none;
+    }
+    li > a, li > a:focus, li > a:hover {
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-bottom-color: transparent;
+    }
+    li > a.active, li > a.active:focus, li > a.active:hover {
+        color: #555;
+        cursor: default;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-bottom-color: transparent;
+    }
+    li a.active .SvgOnboarding {
+        fill: $primary_color;
+        opacity: 1;
+    }
+    .SvgOnboarding {
+        width: 33px;
+        height: 30px;
+        fill: $primary_color;
+        margin-top: 3px;
+        margin-bottom: -2px;
+        opacity: 0.5;
+    }
+    .LiText {
+        font-size: 12px;
+        font-family: $fontFamilyMedium;
+        color: #000 !important;
+        opacity: 0.6;
+        margin-top: 5px;
+    }
+    li a.active .LiText {
+        opacity: 1;
+    }
+    li a.active .InactiveCircle {
+        border-style: solid;
+        border-width: 3px;
+        border-color: $primary_color;
+        border-radius: 50%;
+        background-color: #fff;
+        width: 25px;
+        height: 25px;
+        margin-top: 12px;
+    }
+    
+    .InactiveCircle {
+        border-radius: 50%;
+        background-color: #babbbd;
+        width: 16px;
+        height: 16px;
+        margin-top: 17px;
+        display: inline-block;
+    }
+    
+    li  a  .BorderBottom::after {
+        content: " ";
+        height: 3px;
+        background-color: #ddd;
+        width: calc(100% - 12px);
+        display: inline-block;
+        position: absolute;
+        top: 86px;
+    }
+    li a.complete{
+        .InactiveCircle,.BorderBottom::after {
+            background-color: $primary_color !important;
+        }
+        .BorderBottom::after{
+            transition: background-color 1s linear;
+        }
+        
+    } 
+    li:last-child .BorderBottom::after{
+        width: 0% !important;
+    }
+}
+.IsLoggedInIPOTabs.IPOTabs{
+    li.nav-item {
+        width: 50%;
+    }
+}
+.ApplyNowInner .ApplyNowForms{
+    margin-top: 80px;
+    .CommonTextBox{
+        margin-bottom: 30px;
+    }
+}
+.OTPInfo{
+    font-size: 20px;
+}
+.ipoHeading.SectionTopHeading{
+    span{
+        color: #000 !important;
+    }
+} 
+.ApplyNowInner{
+    padding: 20px 15px;
+}
+.CommonTableBid.CommonTable tbody tr {
+    border-bottom: none;
+    //.TrTotal td{
+        // color: #000;
+    //}
+}
+.TableBidNCD{
+    thead tr{
+        th:nth-child(1){
+            width: 35%;
+        }
+        th:nth-child(2){
+            width: 35%;
+        }
+    }
+    tbody tr{
+        td:nth-child(1){
+            width: 35%;
+        }
+        td:nth-child(2){
+            width: 35%;
+        }
+    }
+}
+@media only screen and (min-width: 992px){
+    .ApplyNowInner {
+        width: 800px;
+        margin: 20px auto;
+    }
+}
+@media only screen and (max-width: 767.99px){
+    .IpoDetails{
+        .IpoDetailsInner{
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+    }
+    .IpoDetailsOuter .IpoHead {
+        grid-template-columns: 70px 1fr;
+    }
+    .EnableCutoff{
+        margin-bottom: 35px;
+    }
+    .ApplyNowInner .ApplyNowForms{
+        margin-top: 65px;
+        padding-bottom: 0px !important;
+    }
+}
+@media only screen and (max-width: 575.99px){
+    .ApplyNowInner .ApplyNowForms{
+        margin-top: 30px;
+    }
+    .DisplayActiveTabName{
+        font-size: 16px;
+    }
+    .EnableCutoff{
+        display: block;
+    }
+    .d-block-xs{
+        display: block;
+        margin-top: 5px;
+    }
+}
+
+@media only screen and (max-width: 399.99px){
+    .IpoDetailsOuter .IpoHead .IpoHeadName{
+        .IpoHeadNameMain{
+            font-size: 16px;
+        }
+        .IpoHeadNameSub{
+            font-size: 12px;
+        }
+    } 
+    .VeryBigText{
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width: 340px){
+    .IpoDetails{
+        .IpoDetailsInner{
+            grid-gap: 15px;
+        }
+    }
+}
+.ReadLess,.ReadMore{
+    color:$primary_color;
+    font-style: italic;
+}
+.discount{
+    font-family: $fontFamilyBold;
+}
+
+.resendButton {
+    border: none;
+    background: none;
+}
+
+.floatingImage{
+    position: absolute;
+    bottom: 5px;
+    left: 195px;
+    height: 1.2rem;
+    cursor: pointer;
+  }

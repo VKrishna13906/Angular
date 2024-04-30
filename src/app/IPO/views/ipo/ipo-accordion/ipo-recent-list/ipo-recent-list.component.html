@@ -1,0 +1,40 @@
+<!-- IPO Recent List Start -->
+<div class="ipo-recent-list data-list-main">
+  <div class="container-full">
+    <ul class="ipo-data-list ipo-recent-list">
+      <li *ngFor="let d of data">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <!-- <h4 class="company-name" title="{{d.COMPANY_NAME}}">
+            <a (click)="OpenCompanyURL(d.CompanyURL)" class="text-primary text-regular roboto-regular">{{d.COMPANY_NAME}}</a>
+          </h4> -->
+          <h4 *ngIf="d.COMPANY_NAME.length <= 20" class="company-name">
+            <a (click)="OpenCompanyURL(d.CompanyURL)" class="text-primary text-regular roboto-regular">{{d.COMPANY_NAME}}</a>
+          </h4>
+          <h4 *ngIf="d.COMPANY_NAME.length > 20" class="company-name" title="{{d.COMPANY_NAME}}">
+            <a (click)="OpenCompanyURL(d.CompanyURL)" class="text-primary text-regular roboto-regular">{{d.COMPANY_NAME}}</a>
+          </h4>
+          <div class="d-flex align-items-center">
+            <h4 class="text-primary text-regular roboto-regular pr-1">
+              <span>&#8377;</span>
+              <span>{{d.ListedPrice}}</span>
+            </h4>
+            <span class="h4 text-regular roboto-regular" [ngClass]="d.Changes < 0?'ColorRed':'ColorLightGreen' ">({{d.Changes}}%)</span>
+          </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="d-flex align-item-center">
+            <span class="h6 text-gray text-medium roboto-medium text-uppercase pr-1">ISSUE PRICE:</span>
+            <span class="h6 text-primary text-medium roboto-medium"> 
+               <span>&#8377;</span>
+                <span>{{d.UpperPriceBand}}</span>
+            </span>
+          </div>
+           <div class="d-flex align-item-center">
+                        <span class="h6 text-gray text-medium roboto-medium text-uppercase">% change on listing</span>
+          </div>
+        </div>
+      </li>
+     </ul>
+  </div>
+</div>
+<!-- IPO Recent List Start -->

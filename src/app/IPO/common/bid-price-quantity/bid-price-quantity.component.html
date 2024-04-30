@@ -1,0 +1,85 @@
+<section class="bid-category-main bg-white">
+  <div class="container">
+    <div class="heading pt-3">
+      <h3 class="text-primary text-bold roboto-bold mb-1">Bid Price and Quantity</h3>
+      <p class="h5 text-gray text-nedium roboto-medium">You can place upto <span *ngIf="TrinityFlag == 'N'">1
+          bid</span><span *ngIf="TrinityFlag == 'Y'">3 bids</span> deselect cut-off price if you wish to enter your own bid price</p>
+    </div>
+    <div class="bids-category-list">
+      <div class="bid-category">
+        <form autocomplete="off" [formGroup]="BidDetailsForm">
+        <div class="card" *ngFor="let bid of BidDetailsFormGroup; let i = index">
+          <div class="card-heading">
+            <h3 class="text-primary text-bold roboto-bold">Bid {{i+1}}</h3>
+            <a *ngIf="i != 0 && IsAllowAddBid" class="clear-search bid-close" (click)="DeletBid(i)"></a>
+          </div>
+          <div class="card-body">
+            <form autocomplete="off" [formGroup]="bid">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <div class="lot-details">
+                <h4 class="text-primary text-medium roboto-medium mb-1">No of Lots</h4>
+                <span class="h5 text-gray text-medium roboto-medium d-flex align-items-center">
+                  <span>1 Lot : </span>
+                  <span>{{BidLot}}</span>
+                </span>
+              </div>
+              <div class="lot-counter">
+                <!-- <form> -->
+                  <div class="form-group position-relative d-flex align-items-center">
+                    <div class="conter-btn mr-2">
+                      <button class="btn inc-btn mr-1" (click)="incCounter1(i)" id="IdBtnBidInc_{{i}}">+</button>
+                      <button class="btn dec-btn" (click)="decCounter1(i)" id="IdBtnBidDesc_{{i}}">-</button>
+                    </div>
+                    <input type="text" class="counter form-control w-128" (keypress)="ValidatePattern('Number',$event)" (paste)="OnPaste($event)" (drop)="OnDrop($event)"
+                      (keyup)="CountBidAmountUsingUpperPriceBand($event.target.value,i,'keyup')" 
+                      (change)="CountBidAmountUsingUpperPriceBand($event.target.value,i,'change')"
+                      formControlName="bidno">
+                  </div>
+                <!-- </form> -->
+              </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <div class="lot-details bid-price">
+                <h4 class="text-primary text-medium roboto-medium mb-1">Bid Price</h4>
+                <div class="bid-price-checkbox">
+                  <!-- <form> -->
+                    <div class="form-group custome-checkbox cutoffprice_{{i}}" [style.pointer-events]="DisableCuttoff ? 'none':'all'">
+                      <input type="checkbox" class="form-control" (change)="checkValue($event,i)"
+                        formControlName="cbx" id="cutoffprice_{{i}}" #cutoffPrice1 checked >
+                      <label for="cutoffprice_{{i}}">Cut-Off Price</label>
+                    </div>
+                  <!-- </form> -->
+                </div>
+              </div>
+              <div class="lot-counter bid-price">
+                <!-- <form> -->
+                  <div class="form-group input-symbol-ruppes position-relative"
+                    [ngClass]="{'form-disabled':cutoffPrice1.checked}">
+                    <input id="IdPrice" type="text" class="bid-price counter form-control" (keypress)="ValidatePattern('Number',$event)" (paste)="OnPaste($event)" (drop)="OnDrop($event)"
+                      (keyup)="CountBidAmountUsingBidPrice($event.target.value,i,'keyup')"
+                      (change)="CountBidAmountUsingBidPrice($event.target.value,i,'change')" 
+                      [value]="" [disabled]="cutoffPrice1.checked" formControlName="price">
+                  </div>
+                <!-- </form> -->
+              </div>
+            </div>
+            <div class="bid-amount d-flex align-items-center">
+              <h3 class="text-primary text-medium roboto-medium pr-1">Bid Amount :</h3>
+              <h3 class="text-primary text-bold roboto-bold">
+                <span>&#8377;</span>
+                <span><input formControlName="TotalBidAmount" class="text-primary text-bold roboto-bold TotalBidAmount"/></span>
+              </h3>
+            </div>
+          </form>
+          </div>
+        </div>
+      </form>
+       </div>
+      <div class="d-flex align-items-center justify-content-center py-3" *ngIf="TrinityFlag == 'Y' && BidCount <= 3 && IsAllowAddBid">
+        <a href="javascript:void(0);" (click)="addBid()"
+          class="h4 text-link text-medium roboto-medium text-uppercase text-center">+
+          add bid</a>
+      </div>
+    </div>
+  </div>
+</section>

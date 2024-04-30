@@ -1,0 +1,68 @@
+::ng-deep .ng-select.custom {
+    min-height: 0px;
+    max-width: 350px;
+}
+::ng-deep .ng-select.dropdown {
+border: 1px solid black;
+} 
+
+.payoption-input[type="radio"]:checked,
+.payoption-input[type="radio"]:not(:checked) {
+    
+  left: -9999px;
+}
+
+.payoption-input[type="radio"]:checked+label,
+.payoption-input[type="radio"]:not(:checked)+label {
+  position: relative;
+  padding-left: 22px;
+  cursor: pointer;
+  display: inline-block;
+  color: rgba(43, 49, 51, 0.88);
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.payoption-input[type="radio"]:checked+label:before,
+.payoption-input[type="radio"]:not(:checked)+label:before {
+  content: '';
+  position: absolute;
+  left: -176px;
+  top: 15px;
+  width: 16px;
+  height: 16px;
+  border: rgba(43, 49, 51, 0.6) 1px solid;
+  border-radius: 100%;
+  background: #fff;
+}
+
+.payoption-input[type="radio"]:checked+label:before {
+  border-color: #25C192;
+}
+
+.payoption-input[type="radio"]:checked+label:after,
+.payoption-input[type="radio"]:not(:checked)+label:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #25C192;
+  position: absolute;
+  top: 18px;
+  left: -173px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.payoption-input[type="radio"]:not(:checked)+label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.payoption-input[type="radio"]:checked+label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+

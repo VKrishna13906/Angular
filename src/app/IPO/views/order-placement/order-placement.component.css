@@ -1,0 +1,44 @@
+.ipo-data-list .ClsNew:last-of-type {
+    border-bottom: 0;
+}
+.ipo-data-list .ClsNew {
+    padding: 15px 0 15px;
+    border-bottom: rgba(0, 0, 0, 0.05) 1px solid;
+}
+.bid-category-main .bid-category-form .form-group {
+    width: 100% !important;
+  }
+  .BidCategoryOuter{
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: 1fr 1.4fr 1fr;
+}
+  @media (max-width: 768px){
+    .BidCategoryOuter{
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 420px){
+    .BidCategoryOuter{
+        grid-template-columns: 1fr;
+    }
+  }
+  .TotalBidAmount{
+    border: 0;
+    pointer-events: none;
+}
+.Opacity{
+  opacity: 0.5;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield !important;
+}

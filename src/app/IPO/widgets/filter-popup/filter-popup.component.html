@@ -1,0 +1,69 @@
+<section class="filter-popup popup-main pb-lg-3">
+  <div class="container">
+    <div class="card-heading position-relative">
+      <h2 class="text-secondary text-bold roboto-bold pr-4">Filters</h2>
+      <a href="javascript:void(0);" class="close-popup clear-search" (click)="modalClose()"></a>
+    </div>
+    <form>
+      <!-- HIde & show as per condition -->
+      <!-- <div class="filter-data filter-client-id">
+        <div class="form-group position-relative">
+          <label for="client-id">Client ID</label>
+          <input type="text" class="client-id-search form-control" placeholder="Enter Client ID to search">
+          <a class="clear-search" href="javascript:void(0);"></a>
+        </div>
+      </div> -->
+      <div class="filter-data filter-issue-type">
+        <h4 class="text-primary text-bold roboto-bold mb-3">Issue type</h4>
+        <div class="d-flex align-items-center">
+          <div *ngFor="let d of ArrIssueType" class="form-group mr-2">
+            <input type="radio" class="filter-radio" name="filter-issue-type" id="{{d.TEXTFIELD}}" value="{{d.VALUEFIELD}}" (click)="OnclickIssueType(d.VALUEFIELD)">
+            <label for="{{d.TEXTFIELD}}">{{d.TEXTFIELD}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="filter-data filter-status">
+        <h4 class="text-primary text-bold roboto-bold mb-3">Status</h4>
+        <div class="d-flex align-items-center">
+          <div *ngFor="let d of ArrStatus" class="form-group mr-2">
+            <input type="radio" class="filter-radio" name="filter-status" id="{{d.TEXTFIELD}}" value="{{d.VALUEFIELD}}" (click)="OnclickStatus(d.VALUEFIELD)">
+            <label for="{{d.TEXTFIELD}}">{{d.TEXTFIELD}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="filter-year-date custome-tabs filter-data">
+        <tabset class="filter-date-tabs tabset">
+          <tab heading="Financial Year">
+            <div class="d-flex flex-wrap">
+              <div *ngFor="let d of FinancialYear" class="form-group mb-4">
+                <input type="radio" class="from-check-input" name="financial-year" id="{{d.TEXTFIELD}}" value="{{d.VALUEFIELD}}" (click)="OnclickFinancialYear(d.VALUEFIELD)">
+                <label for="{{d.TEXTFIELD}}">{{d.TEXTFIELD}}</label>
+              </div>
+            </div>
+          </tab>
+          <tab heading="Date Range">
+            <div class="filter-datepicker d-flex">
+              <div class="form-group position-relative datepicker-right mr-3">
+                <label for="">FROM</label>
+                <input type="text" placeholder="DD/MM/YYYY" class="form-control" [bsValue]="bsValue1" style="height: auto;" (bsValueChange)="onChangeFromDate($event)"
+                  [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY', adaptivePosition: true, showWeekNumbers:false }" bsDatepicker>
+              </div>
+              <div class="form-group position-relative datepicker-left">
+                <label for="">TO</label>
+                <input type="text" placeholder="DD/MM/YYYY" class="form-control" [bsValue]="bsValue2" style="height: auto;" (bsValueChange)="onChangeToDate($event)"
+                  [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY', adaptivePosition: true, showWeekNumbers:false }" placement="top" bsDatepicker>
+              </div>
+            </div>
+          </tab>
+        </tabset>
+      </div>
+      <div class="btn-control d-flex align-items-center justify-content-between"> 
+        <a class="h4 text-link text-medium roboto-medium d-flex justify-content-center align-items-center" (click)="OnClickResetFilter()">
+          <img src="./assets/images/icons/reset.svg" class="img-fluid pr-2" alt="">
+          <span>RESET ALL</span>
+        </a>
+        <button type="submit" class="btn btn-blue" (click)="OnClickApplyFilter()">APPLY</button>
+      </div>
+    </form>
+  </div>
+</section>

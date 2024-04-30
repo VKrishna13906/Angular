@@ -1,0 +1,140 @@
+<div class="reports-main">
+  <div class="container-full">
+    <form class="px-3" autocomplete="off">
+      <div class="d-flex align-items-baseline">
+        <div class="form-group filter-search position-relative mr-3">
+          <input type="text" class="form-control search-input" placeholder="Search by Issue Name" id='search' (keyup)="SetSearch($event.target.value)"/>
+          <a *ngIf="IsShowClearSearch" class="clear-search" (click)="OnClickClear()"></a>
+        </div>
+        <a href="javascript:void(0);" (click)="openFilterPopup()" class="filter-icon">
+          <img src="./assets/images/icons/filter-icon.svg" class="img-fluid" alt="filter">
+        </a>
+      </div>
+    </form>
+    <div class="reports-data">
+      <ul class="report-data-list">
+        <li *ngFor="let d of ArrASBAdata | filter : SearchIssue : FilterObj; let i = index">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="d-flex align-items-center">
+              <span class="badge badge-primary mr-2">{{d.IssueTypeDisplay}}</span>
+              <span class="h6 text-primary text-medium roboto-medium">{{d.DisplayDateOfApplication}}</span>
+            </div>
+            <h5 class="text-medium roboto-medium text-uppercase HandleTexti"
+            [ngClass]="[d.IsBidstatus == 'p' ? 'pending' :'' , d.IsBidstatus == 'a' ? 'accept' :'', d.IsBidstatus == 'r' ? 'reject' : '']">{{d.BidStatus}}</h5>
+          </div>
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <!-- <h4 class="company-name" title="{{d.COMPANY_NAME}}">
+              <a class="text-primary text-regular roboto-regular NoUrl">{{d.CompanyName}}</a>
+            </h4> -->
+            <h4 *ngIf="d.CompanyName.length <= 20" class="company-name">
+              <a  class="text-primary text-regular roboto-regular NoUrl">{{d.CompanyName}}</a>
+            </h4>
+            <h4 *ngIf="d.CompanyName.length > 20" class="company-name" title="{{d.CompanyName}}">
+              <a  class="text-primary text-regular roboto-regular NoUrl">{{d.CompanyName}}</a>
+            </h4>
+            <div class="d-flex align-items-center">
+              <h5 class="text-gray text-medium roboto-medium text-uppercase pr-1">Total</h5>
+              <h4 class="text-primary text-regular roboto-regular">
+                <span>&#8377;</span>
+                <span>{{d.Amount.toLocaleString("en-IN", { minimumFractionDigits: 2 , maximumFractionDigits: 2 })}}</span>
+              </h4>
+            </div>
+          </div>
+          <div class="d-flex align-items-center mb-1">
+            <span class="h6 text-gray text-medium roboto-medium text-uppercase">CATEGORY: </span>
+            <span class="h6 text-gray text-medium roboto-medium text-uppercase">{{d.CATEGORY_SHOW}}</span>
+          </div>
+          <div *ngIf="d.DisableOrder" class="d-flex justify-content-end">
+            <a class="h4 text-secondary text-medium roboto-medium" (click)="OnClickModify(d)">View Details</a>
+          </div>
+        </li>
+      </ul>
+      <div *ngIf="hideSorry">
+        <div class="NoDataFound" *ngIf="((ArrASBAdata | filter : SearchIssue : FilterObj).length == 0) && !IsdataFound">
+          <h3>Sorry!</h3>
+          <p>None of our issue match your filter criteria</p>
+        </div>
+      </div>     
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="FilterModal" appDisabledRightClick>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content AlertModalContentCls">
+      <div class="modal-body AlertModalBody">
+        <section class="filter-popup popup-main pb-lg-3">
+          <div class="container">
+            <div class="card-heading position-relative">
+              <h2 class="text-secondary text-bold roboto-bold pr-4">Filters</h2>
+              <a href="javascript:void(0);" class="close-popup clear-search" (click)="modalClose()"></a>
+            </div>
+            <form>
+              <!-- HIde & show as per condition -->
+              <!-- <div class="filter-data filter-client-id">
+                <div class="form-group position-relative">
+                  <label for="client-id">Client ID</label>
+                  <input type="text" class="client-id-search form-control" placeholder="Enter Client ID to search">
+                  <a class="clear-search" href="javascript:void(0);"></a>
+                </div>
+              </div> -->
+              <div class="filter-data filter-issue-type">
+                <h4 class="text-primary text-bold roboto-bold mb-3">Issue type</h4>
+                <div class="d-flex align-items-center">
+                  <div *ngFor="let d of ArrIssueType" class="form-group mr-2">
+                    <input type="radio" class="filter-radio" name="filter-issue-type" id="{{d.TEXTFIELD}}" value="{{d.VALUEFIELD}}" (click)="OnclickIssueType(d.VALUEFIELD)">
+                    <label for="{{d.TEXTFIELD}}">{{d.TEXTFIELD}}</label>
+                  </div>
+                </div>
+              </div>
+              <div class="filter-data filter-status">
+                <h4 class="text-primary text-bold roboto-bold mb-3">Status</h4>
+                <div class="d-flex align-items-center">
+                  <div *ngFor="let d of ArrStatus" class="form-group mr-2">
+                    <input type="radio" class="filter-radio" name="filter-status" id="{{d.TEXTFIELD}}" value="{{d.VALUEFIELD}}" (click)="OnclickStatus(d.VALUEFIELD)">
+                    <label for="{{d.TEXTFIELD}}">{{d.TEXTFIELD}}</label>
+                  </div>
+                </div>
+              </div>
+              <div class="filter-year-date custome-tabs filter-data">
+                <tabset class="filter-date-tabs tabset">
+                  <tab heading="Financial Year" (selectTab)="OnTabChange('f')">
+                    <div class="d-flex flex-wrap">
+                      <div *ngFor="let d of FinancialYear" class="form-group mb-4">
+                        <input type="radio" class="from-check-input" name="financial-year" id="{{d.TEXTFIELD}}" value="{{d.VALUEFIELD}}" (click)="OnclickFinancialYear(d.VALUEFIELD)">
+                        <label for="{{d.TEXTFIELD}}">{{d.TEXTFIELD}}</label>
+                      </div>
+                    </div>
+                  </tab>
+                  <tab heading="Date Range" (selectTab)="OnTabChange('d')">
+                    <div class="filter-datepicker d-flex">
+                      <div class="form-group position-relative datepicker-right mr-3">
+                        <label for="">FROM</label>
+                        <input type="text" placeholder="DD/MM/YYYY" id="TxtFromDate" class="form-control" [(bsValue)]="bsValue1" style="height: auto;" (bsValueChange)="onChangeFromDate($event)"
+                          [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY', adaptivePosition: true, showWeekNumbers:false }" bsDatepicker>
+                      <img src="../../../../../preipo/assets/images/icons/calendar.svg" class="calIcon"/>
+                        </div>
+                      <div class="form-group position-relative datepicker-left">
+                        <label for="">TO</label>
+                        <input type="text" placeholder="DD/MM/YYYY" id="TxtToDate" class="form-control" [(bsValue)]="bsValue2" style="height: auto;" (bsValueChange)="onChangeToDate($event)"
+                          [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY', adaptivePosition: true, showWeekNumbers:false }" placement="top" bsDatepicker>
+                          <img src="../../../../../preipo/assets/images/icons/calendar.svg" class="calIcon"/>
+                        </div>
+                    </div>
+                  </tab>
+                </tabset>
+              </div>
+              <div class="btn-control d-flex align-items-center justify-content-between"> 
+                <a class="h4 text-link text-medium roboto-medium d-flex justify-content-center align-items-center" (click)="OnClickResetFilter()">
+                  <img src="./assets/images/icons/reset.svg" class="img-fluid pr-2" alt="">
+                  <span>RESET ALL</span>
+                </a>
+                <button type="submit" class="btn btn-blue" (click)="OnClickApplyFilter()">APPLY</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

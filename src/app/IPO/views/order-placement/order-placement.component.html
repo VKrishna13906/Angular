@@ -1,0 +1,356 @@
+<!-- Order Placement Start -->
+<div class="bg-light">
+  <!-- Page Heading Start -->
+  <app-page-heading></app-page-heading>
+  <!-- Page Heading End -->
+
+  <!-- Page Detail Start -->
+  <app-page-detail-heading [hedingText]="heading" [redirectionLink]="link"></app-page-detail-heading>
+  <!-- Page Detail End -->
+
+  <!-- Basci Details Strat -->
+  <div class="my-3">
+    <!-- <app-basic-details [data]="ArrBasicDetails" [DiscountDetails]="DiscountDetails" [TrinityFlag]="TrinityFlag"
+      [CompId]="CompId" [ArrCategory]="ArrCategory"></app-basic-details> -->
+    <section class="basic-details-main bg-white">
+      <div class="container">
+        <div class="card">
+          <div class="card-body pt-0">
+            <div class="bid-detail-list ipo-data-list">
+              <div class="py-0 ClsNew">
+                <div *ngFor="let d of ArrBasicDetails" class="bid-detail-content">
+                  <div class="px-0 pt-0 ClsNew">
+                    <div class="d-flex align-items-center justify-content-between mb-1">
+                      <h4 *ngIf="d.COMPANY_NAME.length <= 20" class="company-name">
+                        <a class="text-primary text-regular roboto-regular NoUrl">{{d.COMPANY_NAME}}</a>
+                      </h4>
+                      <h4 *ngIf="d.COMPANY_NAME.length > 20" class="company-name" title="{{d.COMPANY_NAME}}">
+                        <!-- <a class="text-primary text-regular roboto-regular NoUrl">{{d.COMPANY_NAME.slice(0,20)}}...</a> -->
+                        <a class="text-primary text-regular roboto-regular NoUrl">{{d.COMPANY_NAME}}</a>
+                      </h4>
+                      <h4 class="text-primary text-regular roboto-regular">
+                        <span>&#8377;{{d.LowerPriceBand}}</span> -
+                        <span>&#8377;{{d.UpperPriceBand}}</span>
+                      </h4>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mb-1">
+                      <div class="d-flex align-items-center">
+                        <span class="h6 text-gray text-medium roboto-medium text-uppercase">LOT SIZE</span>
+                        <img src="./assets/images/icons/briefcase.svg" class="img-fluid px-1 Briefcase"
+                          alt="Briefcase" />
+                        <span class="h6 text-gray text-medium roboto-medium">{{d.BidLot}}</span>
+                      </div>
+                      <span class="h6 text-gray text-medium roboto-medium">ISSUE SIZE - &#8377;{{d.TotalSize}} CR</span>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                      <span class="h6 text-gray text-medium roboto-medium">{{d.IssueStartDateDisplay}} -
+                        {{d.IssueEndDateDisplay}}</span>
+                    </div>
+                  </div>
+                  <div *ngIf="CategoryData.length > 0" class="ClsNew">
+                    <h5 class="text-primary text-medium roboto-bold text-uppercase mb-2">discount</h5>
+                    <div *ngFor="let dis of CategoryData">
+                      <div class="d-flex align-items-center justify-content-between mb-1">
+                        <span class="h6 text-primary text-regular roboto-regular text-capitalize">{{dis.name |
+                          titlecase}}</span>
+                        <span class="h6 text-gray text-medium roboto-medium">
+                          <span>&#8377;</span>
+                          <span>{{dis.value}}</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pb-0 ClsNew">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <a *ngIf="d.CompanyURL != '' && d.CompanyURL != undefined && d.CompanyURL != null"
+                        (click)="OpenCompanyURL(d.CompanyURL)" class="d-flex align-items-center">
+                        <h5 class="text-secondary text-medium roboto-medium mr-2">Company Details</h5>
+                        <img src="./assets/images/icons/export-icon.svg" class="img-fluid ExportIcon" alt="Export">
+                      </a>
+                      <a *ngIf="d.DraftProsepectNotePath != '' && d.DraftProsepectNotePath != undefined && d.DraftProsepectNotePath != null"
+                        (click)="DownloadProductNote(d.COMPANY_ID,d.DraftProsepectNotePath)"
+                        class="d-flex align-items-center">
+                        <h5 class="text-secondary text-medium roboto-medium mr-2">View {{d.DraftProsepectNotePath}}</h5>
+                        <img src="./assets/images/icons/export-icon.svg" class="img-fluid ExportIcon" alt="Export">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Basci Details End -->
+
+  <!-- Bid Category Start -->
+  <div class="mb-3">
+    <!-- <app-bid-category [TrinityFlag]="TrinityFlag" [CompId]="CompId" (SelectedCategory)="SelectedCategory($event)"
+      [ArrCategory]="ArrCategory" [ArrClientData]="ArrClientData"></app-bid-category> -->
+      <section class="bid-category-main bg-white">
+        <div class="container">
+          <div class="card">
+            <div class="card-heading">
+              <h3 class="text-primary text-bold roboto-bold">Bid Category</h3>
+            </div>
+            <div class="card-body">
+              <form class="bid-category-form">
+                <div class="BidCategoryOuter">
+                  <div class="form-group mb-3" *ngFor='let cat of ArrCategory;let i = index'>
+                    <input type="radio" [checked]="cat.selected" id="{{cat.TEXTFIELD}}" [disabled]="cat.disabled" class="from-check-input" name="bid-category" (change)='radioChecked(cat.VALUEFIELD)'>
+                    &nbsp;<label for="{{cat.TEXTFIELD}}">{{cat.TEXTFIELD | titlecase}}</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
+  <!-- Bid Category End -->
+
+  <!-- Client DP Id Start -->
+  <div class="mb-3">
+    <app-client-dp-id></app-client-dp-id>
+  </div>
+  <!-- Client DP Id End -->
+
+  <!-- Bid Proce & Qunatity Start -->
+  <div class="mb-3">
+    <!-- <app-bid-price-quantity [TrinityFlag]="TrinityFlag" [UpperPriceBand]="UpperPriceBand"
+      [LowerPriceBand]="LowerPriceBand" [BidLot]="BidLot" [DiscountDetails]="DiscountDetails"
+      [selectedCategory]="selectedCategory" [TotalIpoSize]="TotalIpoSize"></app-bid-price-quantity>
+      <br/>
+      <br/> -->
+      <section class="bid-category-main bg-white">
+        <div class="container">
+          <div class="heading pt-3">
+            <h3 class="text-primary text-bold roboto-bold mb-1">Bid Price and Quantity</h3>
+            <p class="h5 text-gray text-nedium roboto-medium">You can place upto <span *ngIf="TrinityFlag == 'N'">1
+                bid</span><span *ngIf="TrinityFlag == 'Y'">3 bids</span> deselect cut-off price if you wish to enter your own bid price</p>
+          </div>
+          <div class="bids-category-list">
+            <div class="bid-category">
+              <form autocomplete="off" [formGroup]="BidDetailsForm">
+              <div class="card" *ngFor="let bid of BidDetailsFormGroup; let i = index">
+                <div class="card-heading">
+                  <h3 class="text-primary text-bold roboto-bold">Bid {{i+1}}</h3>
+                  <a *ngIf="i != 0 && IsAllowAddBid" class="clear-search bid-close" (click)="DeletBid(i)"></a>
+                </div>
+                <div class="card-body">
+                  <form autocomplete="off" [formGroup]="bid">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div class="lot-details">
+                      <h4 class="text-primary text-medium roboto-medium mb-1">No of Lots</h4>
+                      <span class="h5 text-gray text-medium roboto-medium d-flex align-items-center">
+                        <span>1 Lot : </span>
+                        <span>{{BidLot}}</span>
+                      </span>
+                    </div>
+                    <div class="lot-counter">
+                        <div class="form-group position-relative d-flex align-items-center">
+                          <div class="conter-btn mr-2">
+                            <button class="btn inc-btn mr-1" (click)="incCounter1(i)" id="IdBtnBidInc_{{i}}">+</button>
+                            <button class="btn dec-btn" (click)="decCounter1(i)" id="IdBtnBidDesc_{{i}}">-</button>
+                          </div>
+                          <input type="number" class="counter form-control w-128 numonly" (keypress)="ValidatePattern('Number',$event)" (paste)="OnPaste($event)" (drop)="OnDrop($event)"
+                            (keyup)="CountBidAmountUsingUpperPriceBand($event.target.value,i,'keyup')" 
+                            (change)="CountBidAmountUsingUpperPriceBand($event.target.value,i,'change')"
+                            formControlName="bidno">
+                        </div>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between mb-4">
+                    <div class="lot-details bid-price">
+                      <h4 class="text-primary text-medium roboto-medium mb-1">Bid Price</h4>
+                      <div class="bid-price-checkbox">
+                          <div class="form-group custome-checkbox cutoffprice_{{i}}">
+                            <!-- [style.pointer-events]="DisableCuttoff ? 'none':'all'" -->
+                            <input type="checkbox" class="form-control" (change)="checkValue($event,i)"
+                              formControlName="cbx" id="cutoffprice_{{i}}" #cutoffPrice1 checked >
+                            <label for="cutoffprice_{{i}}">Cut-Off Price</label>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="lot-counter bid-price">
+                      <!-- [ngClass]="{'form-disabled':cutoffPrice1.checked  || disRadio == 'M'}" -->
+                        <div class="form-group input-symbol-ruppes position-relative"                          
+                          [ngClass]="{'form-disabled':cutoffPrice1.checked}">
+                          <input id="IdPrice" type="number" class="bid-price counter form-control" (keypress)="ValidatePattern('Number',$event)" (paste)="OnPaste($event)" (drop)="OnDrop($event)"
+                            (keyup)="CountBidAmountUsingBidPrice($event.target.value,i,'keyup')"
+                            (change)="CountBidAmountUsingBidPrice($event.target.value,i,'change')" 
+                            [value]="" [disabled]="cutoffPrice1.checked" formControlName="price">
+                        </div>
+                    </div>
+                  </div>
+                  <div class="bid-amount d-flex align-items-center">
+                    <h3 class="text-primary text-medium roboto-medium pr-1">Bid Amount :</h3>
+                    <h3 class="text-primary text-bold roboto-bold">
+                      <span>&#8377;</span>
+                      <span><input formControlName="TotalBidAmount" class="text-primary text-bold roboto-bold TotalBidAmount" readonly/></span>
+                    </h3>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </form>
+             </div>
+            <div class="d-flex align-items-center justify-content-center py-3" *ngIf="TrinityFlag == 'Y' && BidCount <= 3 && IsAllowAddBid && ShowBid">
+              <a href="javascript:void(0);" (click)="addBid()"
+                class="h4 text-link text-medium roboto-medium text-uppercase text-center">+
+                add bid</a>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
+  <!-- Bid Proce & Qunatity End -->
+
+  <!-- Payment Mode Start -->
+  <div class="mb-3">
+    <!-- <app-payment-mode [ClientUPIId]="ClientUPIId" [TrinityFlag]="TrinityFlag" [CompId]="CompId"
+      [ASBAAccountNo]="ASBAAccountNo"></app-payment-mode> -->
+      <section class="payment-mode-main bg-white">
+        <div class="container">
+          <div class="card">
+            <div class="card-heading">
+              <h3 class="text-primary text-bold roboto-bold">Payment mode</h3>
+            </div>
+            <div class="card-body">
+              <ul class="payment-method" [ngClass]="disRadio == 'M' ?  'Opacity Mou' : '' ">
+                <li class="mb-4" *ngIf="TrinityFlag == 'Y' || isAsBa" (click)="OnChangeRadio(0)">
+                  <div class="d-flex align-items-start" [ngClass] = "!IsFedRadio ? 'Opacity' : '' ">
+                    <img src="./assets/images/icons/k-sec-logo.svg" class="img-fluid mr-3" alt="Kota Sec">
+                    <div class="d-flex flex-row justify-content-between payment-details position-relative w-100">
+                        <div  class="d-flex flex-column">
+                            <h4 class="text-primary text-medium roboto-medium mb-1 pr-5">Kotak Bank (ASBA)</h4>
+                            <h5 class="text-primary text-regular roboto-regular mb-1">{{ASBAAccountNo}}</h5>
+                        </div>
+                    </div>
+                    <!-- <input id="ASBA" [checked]="TrinityFlag == 'Y'" FormControlName = "ASBARadiotbtn" type="radio" name="paymentmode"> -->
+                    <input id="ASBA"  [checked]="!checkRadioButton ?TrinityFlag == 'N' : TrinityFlag=='Y'" FormControlName = "ASBARadiotbtn" type="radio" name="paymentmode">
+                    <label></label>
+                </div>           
+                  <br/>
+                  <p class="h5 text-gray text-medium roboto-medium">Total bid amount will blocked in your account till
+                    allotment date</p>
+                </li>
+                <li class="upi-palyment" *ngIf="!isAsBa" (click)="clickupi()">
+                  <div class="d-flex align-items-start mb-4" (click)="OnChangeRadio(1)" [ngClass] = "IsFedRadio ? 'Opacity' : '' ">
+                    <img src="./assets/images/icons/upi-payment.svg" class="img-fluid mr-3" alt="UPI">
+                    <div class="d-flex flex-row justify-content-between payment-details position-relative w-100">
+                      <h4 class="text-primary text-medium roboto-medium mb-2">UPI</h4>    
+                    </div>    
+                    <!-- <input id="UPI"  [checked]="TrinityFlag == 'N'" FormControlName = "UPIRadiotbtn" type="radio" name="paymentmode">   -->
+                    <input id="UPI" [checked]="checkRadioButton ?TrinityFlag == 'N' : TrinityFlag=='Y'"  FormControlName = "UPIRadiotbtn" type="radio" name="paymentmode">  
+                          <label></label>         
+                  </div>
+                  <p class="h5 text-gray text-medium roboto-medium">Receive a mandate on your UPI app after placing this
+                    bid to authorise payment</p>
+                    <br/>
+                  <form autocomplete="off" [formGroup]="UPIForm">
+                    <div class="d-flex justify-content-between">
+                      <!-- <div class="form-group mr-4" [ngClass] = "IsFedRadio || TrinityFlag == 'N' ? 'Opacity' : '' "> -->
+                        <div class="form-group mr-4" [ngClass] = "IsFedRadio ? 'Opacity' : '' ">
+                        <input type="text" formControlName="upi" placeholder="Enter UPI ID" maxlength="20" id="upi"
+                          [ngClass]="{ 'is-invalid': UPIFormSubmitted && k.upi.errors }" (change)="onChangeUPIId($event)"
+                          pattern="^[\w.-]{3,20}$" class="form-control n-disabled" [value]="UPIIDName" >
+                        <div *ngIf="UPIFormSubmitted && k.upi.errors" class="invalid-feedback">
+                          <div *ngIf="k.upi.errors.required">Please enter UPI Id</div>
+                          <div  *ngIf="k.upi.errors.pattern">Invalid UPI ID. Please enter a valid UPI ID.</div>
+                        </div>
+                      </div>
+                      <!-- <div class="form-group form-select KSelect" [ngClass] = "IsFedRadio || TrinityFlag == 'N' ? 'Opacity' : '' "> d-flex flex-row justify-content-between payment-details position-relative w-100 -->
+                        <div class="form-group form-select KSelect" [ngClass] = "IsFedRadio? 'Opacity' : '' ">
+                        <select formControlName="UPIHandler" id="UPIHandler" class="form-control select-control TbxMarginBtm CustomSelect0">
+                          <option value="" disabled>Select UPI Handler</option>
+                          <option *ngFor="let r of UPIHandlerList" [value]="r.VALUEFIELD">
+                            {{r.TEXTFIELD}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
+  <!-- Payment Mode End -->
+
+  <!-- Review Bid Button Start -->
+  <div class="review-bid-btn bg-white py-2 py-lg-3">
+    <div class="container btn-control mx-500 mx-auto text-center">
+      <button type="button" class="btn btn-blue" (click)="check_cutflag_asba()">Review Order</button>
+    </div>
+  </div>
+  <!-- Review Bid Button End -->
+</div>
+
+<!-- Order Placement End -->
+
+
+<div class="modal NewModal" id="AlertquantityModal" appDisabledRightClick data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button id="hideIcon" data-dismiss="modal">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0.209704 0.387101L0.292893 0.292893C0.653377 -0.0675905 1.22061 -0.0953204 1.6129 0.209704L1.70711 0.292893L8 6.585L14.2929 0.292893C14.6834 -0.0976309 15.3166 -0.0976309 15.7071 0.292893C16.0976 0.683418 16.0976 1.31658 15.7071 1.70711L9.415 8L15.7071 14.2929C16.0676 14.6534 16.0953 15.2206 15.7903 15.6129L15.7071 15.7071C15.3466 16.0676 14.7794 16.0953 14.3871 15.7903L14.2929 15.7071L8 9.415L1.70711 15.7071C1.31658 16.0976 0.683418 16.0976 0.292893 15.7071C-0.0976309 15.3166 -0.0976309 14.6834 0.292893 14.2929L6.585 8L0.292893 1.70711C-0.0675905 1.34662 -0.0953204 0.779392 0.209704 0.387101L0.292893 0.292893L0.209704 0.387101Z"
+              fill="#2B3133" fill-opacity="0.6" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M20.0001 3.33161C29.2062 3.33161 36.6693 10.7947 36.6693 20.0009C36.6693 29.207 29.2062 36.6701 20.0001 36.6701C10.7939 36.6701 3.33081 29.207 3.33081 20.0009C3.33081 10.7947 10.7939 3.33161 20.0001 3.33161ZM20.0001 5.83161C12.1746 5.83161 5.83081 12.1754 5.83081 20.0009C5.83081 27.8263 12.1746 34.1701 20.0001 34.1701C27.8255 34.1701 34.1693 27.8263 34.1693 20.0009C34.1693 12.1754 27.8255 5.83161 20.0001 5.83161ZM19.994 17.4993C20.6268 17.4988 21.1501 17.9688 21.2333 18.5788L21.2448 18.7484L21.2508 27.9178C21.2513 28.6081 20.692 29.1681 20.0016 29.1686C19.3688 29.169 18.8455 28.6991 18.7623 28.089L18.7508 27.9194L18.7448 18.7501C18.7444 18.0597 19.3036 17.4997 19.994 17.4993ZM20.0008 11.6696C20.9201 11.6696 21.6652 12.4148 21.6652 13.3341C21.6652 14.2533 20.9201 14.9985 20.0008 14.9985C19.0816 14.9985 18.3364 14.2533 18.3364 13.3341C18.3364 12.4148 19.0816 11.6696 20.0008 11.6696Z"
+            fill="#0D4582" />
+        </svg>
+        <h2>Important message</h2>
+        <p id="AlertquantityModalContent" *ngIf = "selectedCategory == 'EMP'">
+          Bid amount above 5 lakhs not allowed for Employee Category
+        </p>
+        <p id="AlertquantityModalContent" *ngIf = "selectedCategory == 'SHA'">
+          Bid amount above 5 lakhs not allowed for Shareholder Category
+        </p>
+        <p id="AlertquantityModalContent" *ngIf = "selectedCategory == 'POL'">
+          Bid amount above 2 lakhs not allowed for Policyholder Category
+        </p>
+        <br />
+        <button id="hideButton" type="button" data-dismiss="modal" class="CursorPointer" (click)="CloseModel()">okay</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal NewModal" id="AlertLimitModal" appDisabledRightClick data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button id="hideIcon" data-dismiss="modal">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0.209704 0.387101L0.292893 0.292893C0.653377 -0.0675905 1.22061 -0.0953204 1.6129 0.209704L1.70711 0.292893L8 6.585L14.2929 0.292893C14.6834 -0.0976309 15.3166 -0.0976309 15.7071 0.292893C16.0976 0.683418 16.0976 1.31658 15.7071 1.70711L9.415 8L15.7071 14.2929C16.0676 14.6534 16.0953 15.2206 15.7903 15.6129L15.7071 15.7071C15.3466 16.0676 14.7794 16.0953 14.3871 15.7903L14.2929 15.7071L8 9.415L1.70711 15.7071C1.31658 16.0976 0.683418 16.0976 0.292893 15.7071C-0.0976309 15.3166 -0.0976309 14.6834 0.292893 14.2929L6.585 8L0.292893 1.70711C-0.0675905 1.34662 -0.0953204 0.779392 0.209704 0.387101L0.292893 0.292893L0.209704 0.387101Z"
+              fill="#2B3133" fill-opacity="0.6" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M20.0001 3.33161C29.2062 3.33161 36.6693 10.7947 36.6693 20.0009C36.6693 29.207 29.2062 36.6701 20.0001 36.6701C10.7939 36.6701 3.33081 29.207 3.33081 20.0009C3.33081 10.7947 10.7939 3.33161 20.0001 3.33161ZM20.0001 5.83161C12.1746 5.83161 5.83081 12.1754 5.83081 20.0009C5.83081 27.8263 12.1746 34.1701 20.0001 34.1701C27.8255 34.1701 34.1693 27.8263 34.1693 20.0009C34.1693 12.1754 27.8255 5.83161 20.0001 5.83161ZM19.994 17.4993C20.6268 17.4988 21.1501 17.9688 21.2333 18.5788L21.2448 18.7484L21.2508 27.9178C21.2513 28.6081 20.692 29.1681 20.0016 29.1686C19.3688 29.169 18.8455 28.6991 18.7623 28.089L18.7508 27.9194L18.7448 18.7501C18.7444 18.0597 19.3036 17.4997 19.994 17.4993ZM20.0008 11.6696C20.9201 11.6696 21.6652 12.4148 21.6652 13.3341C21.6652 14.2533 20.9201 14.9985 20.0008 14.9985C19.0816 14.9985 18.3364 14.2533 18.3364 13.3341C18.3364 12.4148 19.0816 11.6696 20.0008 11.6696Z"
+            fill="#0D4582" />
+        </svg>
+        <h2>Important message</h2>
+        <p id="AlertLimitModalContent"></p>
+        <br />
+        <button id="hideButton" type="button" data-dismiss="modal" class="CursorPointer" (click)="CloseModel()">okay</button>
+      </div>
+    </div>
+  </div>
+</div>

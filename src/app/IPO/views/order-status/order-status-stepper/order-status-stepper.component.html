@@ -1,0 +1,163 @@
+<div class="order-status-stepper-main basic-details-main bg-white mb-3 Custom">
+  <div class="container">
+    <div class="card">
+      <div class="card-heading CustomHead d-flex justify-content-between align-items-center">
+        <h3 class="text-primary text-bold roboto-bold">Order Status</h3>
+        <!-- <div (click)="ShowHide()" *ngIf="IsShow == true">
+          <img src="../../../../../assets/images/icons/up-arrow-sm.svg" height="11px" alt="">
+        </div> -->
+        <div (click)="ShowHide()" class="Show">
+          <img *ngIf="!IsShow" src="../../../../../assets/images/icons/down-arrow.svg" class="Arrow" alt="">
+          <img *ngIf="IsShow" src="../../../../../assets/images/icons/up-arrow.png" class="Arrow" alt="">
+        </div>
+      </div>
+      <div *ngIf="!IsShow">
+        <div class="card-body" *ngIf="ASBAType==0">
+          <!-- Hide & show as per condition -->
+          <ul class="status-stepper d-flex justify-content-between">
+            <li class="stepper" [ngClass]="IsApplicationInit ? 'stepper-success':''">
+              <div class="stepper-content">
+                <h4 class="mb-1">APPLICATION RECEIVED</h4>
+              </div>
+              <span class="date h6 text-gray text-medium roboto-medium mb-lg-2">{{ApplicationOn}}</span>
+            </li>
+            <li class="stepper"
+            [ngClass]="[IsSubmitedToExchange == 'p' ? 'stepper-pending':'',IsSubmitedToExchange == 'i' ? 'stepper-inprogress':'',IsSubmitedToExchange == 'c' ? 'stepper-success':'']">
+              <div class="stepper-content">
+                <h4 class="mb-1">SUBMITTED TO THE EXCHANGE</h4>
+                <h5>Your proofs are verified by the exchange</h5>
+                <h5 class="mt-1">
+                  <span>Order ID:</span>
+                  <span>{{OrderNo}}</span>
+                </h5>
+              </div>
+              <span *ngIf="IsSubmitedToExchange == 'c'"
+                class="date h6 text-gray text-medium roboto-medium mb-lg-2">{{SubmittedOn}}</span>
+            </li>
+            <li class="stepper"
+              [ngClass]="[Payment == 'p' ? 'stepper-pending':'',Payment == 'i' ? 'stepper-inprogress':'',Payment == 'c' ? 'stepper-success':'']">
+              <div *ngIf="Payment != 'c'" class="stepper-content">
+                <h4 class="mb-1">PAYMENT PENDING</h4>
+              </div>
+              <div *ngIf="Payment == 'c'" class="stepper-content">
+                <h4 class="mb-1">PAYMENT CONFIRMED</h4>
+                <h5>Payment of <span><span>&#8377;</span>{{Amount}}</span> is authorised</h5>
+              </div>
+              <span *ngIf="Payment == 'c'"
+                class="date h6 text-gray text-medium roboto-medium mb-lg-2">{{PaymentOn}}</span>
+            </li>
+  
+            <li class="stepper"
+            [ngClass]="[IsAllot == 'p' ? 'stepper-inprogress':'',IsAllot == 'r' ? 'stepper-reject':'',IsAllot == 's' ? 'stepper-success':'']"> 
+              <div *ngIf="Allotement != 'c'" class="stepper-content">
+                <h4 class="mb-1">ALLOTMENT</h4>
+              </div>
+              <div *ngIf="Allotement == 'c'" class="stepper-content">
+                <h4 class="mb-1">ALLOTMENT</h4>
+                <h5>1 lot <span>(14 shares)</span> alloted.</h5>
+              </div>
+              <span *ngIf="Allotement == 'c'"
+                class="date h6 text-gray text-medium roboto-medium mb-lg-2">{{AllotedOn}}</span>
+            </li>
+          </ul>
+        </div>
+  
+  
+        <div class="card-body" *ngIf="ASBAType == 1 && (Type=='N' || Type == 'C')" >
+          <!-- Hide & show as per condition -->
+          <ul class="status-stepper d-flex justify-content-between">
+            <li class="stepper" [ngClass]="IsAsbaApplicationinit ? 'stepper-success':''">
+              <div class="stepper-content">
+                <h4 class="mb-1">APPLICATION RECEIVED</h4>
+              </div>
+              <!-- <span class="date h6 text-gray text-medium roboto-medium mb-lg-2">{{ApplicationOn}}</span> -->
+            </li>
+  
+            <li class="stepper"
+              [ngClass]="[IsLien == 'p' ? 'stepper-inprogress':'',IsLien == 'r' ? 'stepper-reject':'',IsLien == 's' ? 'stepper-success':'']">
+              <div class="stepper-content">
+                <h4 class="mb-1">LIEN MARKING</h4>
+                <h5 *ngIf="JourneyStatus ==1 || JourneyStatus == 2 || JourneyStatus == 4 || JourneyStatus == 3">
+                  {{LineMarkingVerbiage}}</h5>
+              </div>
+              <!-- <span class="date h6 text-gray text-medium roboto-medium mb-lg-2">{{ApplicationOn}}</span> -->
+            </li>
+  
+  
+            <li class="stepper"
+            [ngClass]="[IsExcange == 'p' ? 'stepper-inprogress':'',IsExcange == 'r' ? 'stepper-reject':'',IsExcange == 's' ? 'stepper-success':'']"> 
+              <div class="stepper-content">
+                <h4 class="mb-1">SUBMITTED TO THE EXCHANGE</h4>
+                <h5 *ngIf="JourneyStatus == 3 || JourneyStatus == 4 || JourneyStatus == 2">{{ExchangeVerbiage}}</h5>
+              </div>
+              <!-- <span *ngIf="IsSubmitedToExchange == 'c'" class="date h6 text-gray text-medium roboto-medium mb-lg-2">{{SubmittedOn}}</span> -->
+            </li>
+  
+            <li class="stepper"
+            [ngClass]="[IsAllot == 'p' ? '':'',IsAllot == 'r' ? 'stepper-reject':'',IsAllot == 's' ? 'stepper-success':'']"> 
+              <div *ngIf="Allotement != 'c'" class="stepper-content">
+                <h4 class="mb-1">ALLOTMENT</h4>
+                <h5 *ngIf="JourneyStatus == 4 || JourneyStatus == 3">{{AllotmentVerbiage}}</h5>
+              </div>
+              <div *ngIf="Allotement == 'c'" class="stepper-content">
+                <h4 class="mb-1">ALLOTMENT</h4>
+                <h5>1 lot <span>(14 shares)</span> alloted.</h5>
+              </div>
+              <span *ngIf="Allotement == 'c'"
+                class="date h6 text-gray text-medium roboto-medium mb-lg-2">{{AllotedOn}}</span>
+            </li>
+  
+          </ul>
+        </div>
+  
+        <div class="card-body" *ngIf="ASBAType == 1 && (Type=='DM' || Type == 'UM')">
+          <ul class="status-stepper d-flex justify-content-between">
+            <li class="stepper" [ngClass]="IsAsbaApplicationinit ? 'stepper-success':''">
+              <div class="stepper-content">
+                <h4 class="mb-1">APPLICATION RECEIVED</h4>
+              </div>
+            </li>
+  
+            <li class="stepper"
+                [ngClass]="[IsLien == 'p' ? 'stepper-inprogress':'',IsLien == 'r' ? 'stepper-reject':'',IsLien == 's' ? 'stepper-success':'']">
+              <div class="stepper-content">
+                <h4 class="mb-1" >LIEN MARKING</h4>
+                <h5>{{LineMarkingVerbiage}}</h5>
+              </div>
+            </li>
+  
+            <li class="stepper"
+            [ngClass]="[IsExcange == 'p' ? 'stepper-inprogress':'',IsExcange == 'r' ? 'stepper-reject':'',IsExcange == 's' ? 'stepper-success':'']"> 
+              <div class="stepper-content">
+                <h4 class="mb-1">SUBMITTED TO THE EXCHANGE</h4>
+                <h5>
+                  {{ExchangeVerbiage}}</h5>
+              </div>
+            </li>
+  
+            <li class="stepper"
+            [ngClass]="[ISModify == 'p' ? 'stepper-inprogress':'',ISModify == 'r' ? 'stepper-reject':'',ISModify == 's' ? 'stepper-success':'']"> 
+            <div class="stepper-content">
+                <h4 class="mb-1">APPLICATION MODIFICATION</h4>
+                <h5>{{ModificationVerbiage}}</h5>
+              </div>
+            </li>
+  
+             <li class="stepper"
+            [ngClass]="[IsAllot == 'p' ? '':'',IsAllot == 'r' ? 'stepper-reject':'',IsAllot == 's' ? 'stepper-success':'']"> 
+              <div *ngIf="Allotement != 'c'" class="stepper-content">
+                <h4 class="mb-1">ALLOTMENT</h4>
+                <h5 *ngIf="JourneyStatus == 4 || JourneyStatus == 3">{{AllotmentVerbiage}}</h5>
+              </div>
+              <div *ngIf="Allotement == 'c'" class="stepper-content">
+                <h4 class="mb-1">ALLOTMENT</h4>
+                <h5>1 lot <span>(14 shares)</span> alloted.</h5>
+              </div>
+            </li>
+  
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

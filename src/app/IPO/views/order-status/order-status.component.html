@@ -1,0 +1,106 @@
+<!-- Order Details & Status Start -->
+<div class="bg-light">
+  <!-- Page Heading Start -->
+  <app-page-heading></app-page-heading>
+  <!-- Page Heading End -->
+
+  <!-- Page Detail Start -->
+  <app-page-detail-heading [hedingText]="heading" [redirectionLink]="link"></app-page-detail-heading>
+  <!-- Page Detail End -->
+
+  <!-- Order Details Start -->
+  <app-order-application-details [data]="data"></app-order-application-details>
+  <!-- Order Details End -->
+
+  <!-- Order Status Stepper Start -->
+  <app-order-status-stepper [data]="data"></app-order-status-stepper>
+  <!-- Order Status Stepper End -->
+
+  <div *ngIf="IsShowButtons" class="review-bid-btn order-status-btn bg-white py-2 py-lg-3">
+    <div class="container">
+      <div class="d-flex justify-content-between justify-content-lg-center">
+        <button type="button" class="btn btn-danger mr-3" (click)="OnClickWithdraw()" *ngIf="!HideWithdrow">Withdraw</button>
+        <button type="button" class="btn btn-blue" (click)="OnClickModify()">Modify</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Order Details & Status End -->
+<div class="modal NewModal" id="IPOModal" appDisabledRightClick>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button *ngIf="!DeleteOrder" id="hideIcon" data-dismiss="modal">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0.209704 0.387101L0.292893 0.292893C0.653377 -0.0675905 1.22061 -0.0953204 1.6129 0.209704L1.70711 0.292893L8 6.585L14.2929 0.292893C14.6834 -0.0976309 15.3166 -0.0976309 15.7071 0.292893C16.0976 0.683418 16.0976 1.31658 15.7071 1.70711L9.415 8L15.7071 14.2929C16.0676 14.6534 16.0953 15.2206 15.7903 15.6129L15.7071 15.7071C15.3466 16.0676 14.7794 16.0953 14.3871 15.7903L14.2929 15.7071L8 9.415L1.70711 15.7071C1.31658 16.0976 0.683418 16.0976 0.292893 15.7071C-0.0976309 15.3166 -0.0976309 14.6834 0.292893 14.2929L6.585 8L0.292893 1.70711C-0.0675905 1.34662 -0.0953204 0.779392 0.209704 0.387101L0.292893 0.292893L0.209704 0.387101Z"
+              fill="#2B3133" fill-opacity="0.6" />
+          </svg>
+        </button>
+        <button *ngIf="DeleteOrder" id="hideIcon" data-dismiss="modal" [routerLink]="['/ipo']">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0.209704 0.387101L0.292893 0.292893C0.653377 -0.0675905 1.22061 -0.0953204 1.6129 0.209704L1.70711 0.292893L8 6.585L14.2929 0.292893C14.6834 -0.0976309 15.3166 -0.0976309 15.7071 0.292893C16.0976 0.683418 16.0976 1.31658 15.7071 1.70711L9.415 8L15.7071 14.2929C16.0676 14.6534 16.0953 15.2206 15.7903 15.6129L15.7071 15.7071C15.3466 16.0676 14.7794 16.0953 14.3871 15.7903L14.2929 15.7071L8 9.415L1.70711 15.7071C1.31658 16.0976 0.683418 16.0976 0.292893 15.7071C-0.0976309 15.3166 -0.0976309 14.6834 0.292893 14.2929L6.585 8L0.292893 1.70711C-0.0675905 1.34662 -0.0953204 0.779392 0.209704 0.387101L0.292893 0.292893L0.209704 0.387101Z"
+              fill="#2B3133" fill-opacity="0.6" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M20.0001 3.33161C29.2062 3.33161 36.6693 10.7947 36.6693 20.0009C36.6693 29.207 29.2062 36.6701 20.0001 36.6701C10.7939 36.6701 3.33081 29.207 3.33081 20.0009C3.33081 10.7947 10.7939 3.33161 20.0001 3.33161ZM20.0001 5.83161C12.1746 5.83161 5.83081 12.1754 5.83081 20.0009C5.83081 27.8263 12.1746 34.1701 20.0001 34.1701C27.8255 34.1701 34.1693 27.8263 34.1693 20.0009C34.1693 12.1754 27.8255 5.83161 20.0001 5.83161ZM19.994 17.4993C20.6268 17.4988 21.1501 17.9688 21.2333 18.5788L21.2448 18.7484L21.2508 27.9178C21.2513 28.6081 20.692 29.1681 20.0016 29.1686C19.3688 29.169 18.8455 28.6991 18.7623 28.089L18.7508 27.9194L18.7448 18.7501C18.7444 18.0597 19.3036 17.4997 19.994 17.4993ZM20.0008 11.6696C20.9201 11.6696 21.6652 12.4148 21.6652 13.3341C21.6652 14.2533 20.9201 14.9985 20.0008 14.9985C19.0816 14.9985 18.3364 14.2533 18.3364 13.3341C18.3364 12.4148 19.0816 11.6696 20.0008 11.6696Z"
+            fill="#0D4582" />
+        </svg>
+        <h2>Important message</h2>
+        <p id="IPOModalContent"></p>
+        <br />
+        <button *ngIf="!DeleteOrder" type="button" data-dismiss="modal" class="CursorPointer">Okay</button>
+        <button *ngIf="DeleteOrder" type="button" data-dismiss="modal" class="CursorPointer" [routerLink]="['/ipo']">Okay</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="ArrASBAModal" appDisabledRightClick>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content AlertModalContentCls">
+      <div class="modal-header TextNCross AlertModalHeader">
+        <div>Select applications for withdraw</div>
+        <button id="hideIcon" data-dismiss="modal">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0.209704 0.387101L0.292893 0.292893C0.653377 -0.0675905 1.22061 -0.0953204 1.6129 0.209704L1.70711 0.292893L8 6.585L14.2929 0.292893C14.6834 -0.0976309 15.3166 -0.0976309 15.7071 0.292893C16.0976 0.683418 16.0976 1.31658 15.7071 1.70711L9.415 8L15.7071 14.2929C16.0676 14.6534 16.0953 15.2206 15.7903 15.6129L15.7071 15.7071C15.3466 16.0676 14.7794 16.0953 14.3871 15.7903L14.2929 15.7071L8 9.415L1.70711 15.7071C1.31658 16.0976 0.683418 16.0976 0.292893 15.7071C-0.0976309 15.3166 -0.0976309 14.6834 0.292893 14.2929L6.585 8L0.292893 1.70711C-0.0675905 1.34662 -0.0953204 0.779392 0.209704 0.387101L0.292893 0.292893L0.209704 0.387101Z"
+              fill="#2B3133" fill-opacity="0.6" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body AlertModalBody">
+        <table class="CommonTable">
+          <thead>
+            <tr>
+              <th></th>
+              <th>No. of Lots</th>
+              <th>Quantity</th>
+              <th>Rate</th>
+              <th>Amount</th>
+              <th>CutOff Flag</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let a of ArrASBA; let i = index">
+              <td><input type="checkbox" checked="true" disabled></td>
+              <td>{{a.NoofLotsBid1}}</td>
+              <td>{{a.Quantity}}</td>
+              <td>{{a.Rate}}</td>
+              <td>{{a.Amount}}</td>
+              <td>{{a.CutOffFlagShow}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer AlertModalFooter">
+        <button type="button" data-dismiss="modal" class="CursorPointer" (click)="WithdrawASBA(1)">Withdraw</button>
+        <button type="button" data-dismiss="modal" class="CursorPointer">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

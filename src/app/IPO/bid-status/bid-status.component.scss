@@ -1,0 +1,70 @@
+@import '../../../CssVariables';
+.GridRow1{
+    display: grid;
+    grid-template-columns: 4.6fr 1.5fr;
+    grid-gap: 20px;
+    .Count,.Count2 {
+        display: grid;
+        grid-template-columns: 2.3fr 1fr;
+        grid-column-gap: 20px;
+    }
+    .Count2{
+        margin-top: 20px;
+    }
+}
+
+
+.ClientCount{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    .ClientCountInner{
+        background-color: #fff;
+        padding: 5px 10px 0 13px;
+        .ClientIconOuter{
+    text-align: right;
+    display: inline-block;
+    border-radius: 50%;
+        }
+        .ClientIconOuter.TotalClient{
+            background-color: rgb(66 133 244 / 10%);
+        }
+        .ClientIconOuter.ActiveClient{
+            background-color: rgb(250 187 5 / 10%);
+        }
+        .ClientIconOuter.InActiveClient{
+            background-color: rgb(217 48 37 / 10%);
+        }
+        .ClientIconOuter.OnlineInvestor{
+            background-color: rgb(24 128 56 / 10%);
+        }
+        .ClientIcon{
+            width: 30px;
+            padding: 5px;
+        }
+        .ClientCount{
+            font-size: 32px;
+            font-family: "Segoe UI Bold";
+            line-height: 42px;
+            margin-top: 5px;
+        }
+        .ClientCountText{
+            font-size: 15px;
+            margin-top: 6px;
+            img{
+                width:12px;
+                height:12px;
+                cursor: pointer;
+            }
+        }
+    }
+    .NoRecordFoundAlign{
+        min-height: 33px !important;
+        justify-content: left !important;
+        margin-top: 14px;
+    }
+}
+
+.TopMost{
+    background-color: #fff;
+}

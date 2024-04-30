@@ -1,0 +1,68 @@
+<section class="payment-mode-main bg-white">
+    <div class="container">
+      <div class="card">
+        <div class="card-heading">
+          <h3 class="text-primary text-bold roboto-bold">Payment mode</h3>
+        </div>
+        <div class="card-body">
+          <ul class="payment-method">
+            <li class="mb-4" *ngIf="TrinityFlag == 'Y'">
+              <div class="d-flex align-items-start">
+                <img src="./assets/images/icons/k-sec-logo.svg" class="img-fluid mr-3" alt="Kota Sec">
+                <div class="d-flex flex-row justify-content-between payment-details position-relative w-100">
+                    <div  class="d-flex flex-column">
+                        <h4 class="text-primary text-medium roboto-medium mb-1 pr-5">Kotak Bank (ASBA)</h4>
+                        <h5 class="text-primary text-regular roboto-regular mb-1">{{ASBAAccountNo}}</h5>
+                    </div>
+                </div>
+                <input id="ASBA" [checked]="TrinityFlag == 'Y'" FormControlName = "ASBARadiotbtn" type="radio" name="paymentmode" value="0" (change)="OnChangeRadio($event)">
+                <label></label>
+            </div>           
+              <br/>
+              <p class="h5 text-gray text-medium roboto-medium">Total bid amount will blocked in your account till
+                allotment date</p>
+                <br/>
+            </li>
+            <li class="upi-palyment">
+              <div class="d-flex align-items-start mb-4">
+                <img src="./assets/images/icons/upi-payment.svg" class="img-fluid mr-3" alt="UPI">
+                <div class="d-flex flex-row justify-content-between payment-details position-relative w-100">
+                  <h4 class="text-primary text-medium roboto-medium mb-2">UPI</h4>    
+                </div>    
+                <input id="UPI"  [checked]="TrinityFlag == 'N'" FormControlName = "UPIRadiotbtn" type="radio" name="paymentmode" value="1" (change)="OnChangeRadio($event)">      
+                      <label></label>         
+              </div>
+              <p class="h5 text-gray text-medium roboto-medium">Receive a mandate on your UPI app after placing this
+                bid to authorise payment</p>
+                <br/>
+              <form autocomplete="off" [formGroup]="UPIForm">
+                <!-- Show and hide one payment method as per condition -->
+                <div class="d-flex justify-content-between">
+                  <div class="form-group mr-4">
+                    <input type="text" formControlName="upi" placeholder="Enter UPI ID" maxlength="20"
+                      [ngClass]="{ 'is-invalid': (k.upi.dirty || k.upi.touched) && k.upi.errors }" (change)="onChangeUPIId($event)"
+                      pattern="^[\w.-]{3,20}$" class="form-control" [value]="UPIIDName" > <!--(keypress)="ValidatePattern('NumberandCharc',$event)" (paste)="OnPaste($event)" (drop)="OnDrop($event)"-->
+                    <div *ngIf="(k.upi.dirty || k.upi.touched) && k.upi.errors" class="invalid-feedback">
+                      <div *ngIf="k.upi.errors.required">Please enter UPI Id</div>
+                      <div *ngIf="k.upi.errors.pattern">Invalid UPI ID. Please enter a valid UPI ID.</div>
+                    </div>
+                  </div>
+                  <div class="form-group form-select KSelect">
+                    <!-- <ngx-select class="select-control"
+                      [defaultValue]="SelectedValue" [items]="upiId"
+                      (selectionChanges)="doSelectOptions($event)" placeholder="Select">
+                    </ngx-select> -->
+                    <select class="form-control select-control TbxMarginBtm CustomSelect0">
+                      <option value="" disabled>Select UPI Handler</option>
+                      <option *ngFor="let r of UPIHandlerList" [value]="r.VALUEFIELD">
+                        {{r.TEXTFIELD}}</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,24 @@
+.TopMost
+{
+    background-color:#fff;
+}
+.hovereffect:hover
+{
+    color:#007bff;
+    text-decoration: underline;
+}
+
+
+.floatingImage{
+    position: absolute;
+    bottom: 5px;
+    left: 323px;
+    height: 1.3rem;
+    cursor: pointer;
+  }
+
+  *[disabled] {
+    cursor: auto !important;
+    //opacity: 0.5 !important;
+    background-color: transparent !important;
+  }

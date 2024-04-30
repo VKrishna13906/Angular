@@ -1,0 +1,132 @@
+<!-- <nav *ngIf='CompanyName != "AU"' class="navbar p-0 NavbarBg" role="navigation" [style.min-height]="NavHeight">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand LogoAnchorClass logo1">
+                <img *ngIf="CompanyName != 'Mahindra'" class="logo_img" [src]='logo' [style.width]="logoWidth"
+                    [style.height]="logoHeight">
+                <img *ngIf="CompanyName == 'Mahindra'" style="padding: 0 !important;" class="logo_img" [src]='logo'
+                    [style.width]="logoWidth" [style.height]="logoHeight">
+            </a>
+        </div>
+
+    </div>
+</nav> -->
+<app-header-pre-login></app-header-pre-login>
+<div class="LoginOuter {{CompanyName}}_LoginBg">
+    <div class="container MainOuter">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12" [ngClass]='CompanyName == "AU" ? "mx-auto":""'>
+                <div class="OnBoardingFormOuter" [ngClass]='CompanyName == "AU" ? "OnBoardingFormOuterBoxShadow":""'>
+                    <div *ngIf='CompanyName == "AU"' class="FormLogo text-center">
+                        <img [src]='logo' />
+                    </div>
+                    <div class="FormHeading">
+                        <div *ngIf="CompanyName == 'Mahindra'">
+                            <p class="ColorBlue" style="font-size: 18px !important;">Welcome to {{WelcomeText}}</p>
+                        </div>
+                        <div *ngIf="CompanyName != 'Mahindra'" class="w-100"
+                            [ngClass]='CompanyName == "AU" ? "text-center":""'>
+                            <p class="ColorBlue">Welcome to {{WelcomeText}}</p>
+                        </div>
+                    </div>
+                    <div class="Signup MainForm">
+                        <div class="row">
+                            <div class="col-12">
+                                <form autocomplete="off" [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+                                    <div class="row">
+                                        <div class="col InputBoxOuter">
+                                            <input type="text" formControlName="Username"
+                                                oninput="this.value = this.value.toUpperCase()" autofocus
+                                                class="form-control CommonTextBox"
+                                                [ngClass]="{ 'is-invalid': LoginSubmitted && r.Username.errors }"
+                                                placeholder="Enter pan number" maxlength="10" />
+                                            <div *ngIf="LoginSubmitted && r.Username.errors" class="invalid-feedback">
+                                                <div *ngIf="r.Username.errors.required">Please enter your pan number.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col InputBoxOuter">
+                                            <!-- <show-hide-password btnStyle="" [btnOutline]="false"> -->
+                                                <input type="password" formControlName="Password1"
+                                                    class="form-control CommonTextBox passwordtxt"
+                                                    [ngClass]="{ 'is-invalid': LoginSubmitted && r.Password.errors }"
+                                                    placeholder="Enter password" maxlength="20" />
+                                                <div *ngIf="LoginSubmitted && r.Password.errors"
+                                                    class="invalid-feedback">
+                                                    <div *ngIf="r.Password.errors.required">Please enter your password.
+                                                    </div>
+                                                    <div *ngIf="r.Password.errors.pattern">Password contains atleast 1
+                                                        numeric , 1 uppercase, 1 lowercase and 1 special character
+                                                    </div>
+                                                    <!--Password contains atleast 1 number, 1 uppercase, 1 lowercase and 1 special charactor (@$!%*?&#)-->
+                                                </div>
+                                            <!-- </show-hide-password> -->
+                                            <div *ngIf='CompanyName != "AU"' routerLink="/forgot-password-corp" routerLinkActive="active"
+                                                class="ForgetPassLink" (click)="SendUserType()">
+                                                Forgot Password?
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="IsInValidAttempt">
+                                        <div class="row">
+                                            <div class="">
+                                                <div class="captcha">
+                                                    <span class="captchatext">{{CaptchaText}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div>
+
+                                                <input type="text" formControlName="Captcha"
+                                                    class="form-control CommonTextBox" autocomplete="off"
+                                                    placeholder="Enter Captcha" maxlength="20"
+                                                    [ngClass]="{ 'is-invalid': LoginSubmitted && r.Captcha.errors }" />
+                                                <div *ngIf="LoginSubmitted && r.Captcha.errors"
+                                                    class="invalid-feedback">
+                                                    <div *ngIf="r.Captcha.errors.required">Please enter captcha.</div>
+                                                </div>
+                                                <div class="invalid-feedback"
+                                                    [ngClass]='InvalidCaptcha?"d-block": "d-none"'>
+                                                    Please enter valid captcha.</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="SubmitMarginTop text-center">
+                                        <button class="CommonSubmitButton"
+                                            [disabled]='r.Username.value == "" || r.Password.value == ""'>Login</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div *ngIf='!IsMobile && CompanyName != "AU"' class="col-12">
+                                <div class="CreateAccount">
+                                    <div *ngIf='UserType == 2'>
+                                        Don't have a distributor account?
+                                        <span class="BlueText" routerLink="/cp-onboarding"
+                                            routerLinkActive="active">Create Account</span>
+                                    </div>
+                                    <div *ngIf='UserType == 3 && IsAllowLogin'>
+
+                                        If you are a new client of {{WelcomeText}},
+                                        <span class="BlueText" routerLink="/client-preOnboading"
+                                            routerLinkActive="active">click here to create a new account.</span><br />
+
+                                        If you are an existing {{WelcomeText}} client and don't have a password
+                                        <span class="BlueText" routerLink="/generate-password"
+                                            routerLinkActive="active">Click Here</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- The Modal End -->

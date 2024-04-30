@@ -1,0 +1,17 @@
+@import '../../CssVariables';
+.LogoAnchorClass {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+}
+@media (max-width: 767.99px) { 
+  .navbar-brand.LogoAnchorClass img{
+      width: 200px;
+  }
+  }
+  
+  .LogoAnchorClass img{
+    padding: 5px 0px 5px 15px !important;
+}
+  

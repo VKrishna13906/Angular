@@ -1,0 +1,27 @@
+
+.NoDataFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+.NoDataFound h3 {
+      margin-bottom: 1rem;
+      font-size: 1.7rem;
+      color:#FA474D;
+    }
+.NoDataFound p {
+      font-size: 1.2rem;
+      color: #cecece;
+    }
+  
+    .pending{
+      color: orange;
+    }
+    .reject{
+      color: red;
+    }
+    .accept{
+      color: green;
+    }

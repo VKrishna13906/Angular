@@ -1,0 +1,17 @@
+.bid-category-main .bid-category-form .form-group {
+    width: 100% !important;
+  }
+  .BidCategoryOuter{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 768px){
+    .BidCategoryOuter{
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 420px){
+    .BidCategoryOuter{
+        grid-template-columns: 1fr;
+    }
+  }

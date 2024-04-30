@@ -1,0 +1,12 @@
+.oopsOuter{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .oops{
+        font-size: 150px;
+    }
+    .error{
+        font-size: 30px;
+    }
+}

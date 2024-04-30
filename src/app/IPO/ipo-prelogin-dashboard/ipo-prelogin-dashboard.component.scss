@@ -1,0 +1,84 @@
+@import '../../../CssVariables';
+.TblCurrForth{
+    thead tr{
+        th:nth-child(1){
+            width: 30%;
+        }
+    }
+    tbody tr{
+        td:nth-child(1){
+            width: 30%;
+            color:$primary_color;
+            font-size:15px;
+            font-family:$fontFamilyRegular !important;
+        }
+    }
+    thead tr{
+        th:nth-child(2),th:nth-child(3),th:nth-child(4){
+            text-align: right;
+        }
+    }
+    tbody tr{
+        td:nth-child(2),td:nth-child(3),td:nth-child(4){
+            text-align: right;
+        }
+    }
+}
+.TblClosed{
+    thead tr{
+        th:nth-child(1){
+            width: 30%;
+        }
+    }
+    tbody tr{
+        td:nth-child(1){
+            width: 30%;
+            color:$primary_color;
+            font-size:15px;
+            font-family:$fontFamilyRegular !important;
+        }
+    }
+    thead tr{
+        th:not(:nth-child(1)){
+            text-align: right;
+        }
+    }
+    tbody tr{
+        td:not(:nth-child(1)){
+            text-align: right;
+        }
+    }
+}
+.IPOPerformanceHt{
+    max-height: 515px;
+}
+.IPOPerformanceOuter{
+    padding: 0 15px 15px;
+    .CommonTable{
+        thead tr{
+            th:nth-child(1){
+                max-width: 100px;
+            }
+        }
+        tbody tr{
+            td:nth-child(1){
+                max-width: 100px;
+                white-space: nowrap; 
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}
+.BtnClsTrack button{
+    color: #fff !important;
+    background-color: $primary_color;
+    border-radius: 2px;
+    font-family: $fontFamilyMedium;
+    border: none !important;
+    font-size: 13px;
+    padding: 5px 0px;
+    width: 82px;
+    margin: 0 5px;
+    line-height: 15px;
+}

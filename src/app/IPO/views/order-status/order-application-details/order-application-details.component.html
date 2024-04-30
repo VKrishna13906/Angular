@@ -1,0 +1,99 @@
+<div class="order-application-main order-summary-details-main mt-3">
+  <div class="container-full">
+    <ul class="order-summary-list">
+      <li>
+        <ul *ngFor="let d of ArrData">
+          <li>
+            <div class="d-flex align-items-center justify-content-between mb-1">
+              <!-- <h4 class="company-name" title="{{d.CompanyName}}">
+                <a class="text-primary text-regular roboto-regular NoUrl">{{d.CompanyName}}</a>
+              </h4> -->
+              <h4 *ngIf="d.CompanyName.length <= 20" class="company-name">
+                <a class="text-primary text-regular roboto-regular NoUrl">{{d.CompanyName}}</a>
+              </h4>
+              <h4 *ngIf="d.CompanyName.length > 20" class="company-name" title="{{d.CompanyName}}">
+                <!-- <a class="text-primary text-regular roboto-regular NoUrl">{{d.CompanyName.slice(0,20)}}...</a> -->
+                <a class="text-primary text-regular roboto-regular NoUrl">{{d.CompanyName}}</a>
+              </h4>
+              <h4 class="text-primary text-regular roboto-regular">
+                <span>&#8377;{{d.LowerPriceBand}}</span> -
+                <span>&#8377;{{d.UpperPriceBand}}</span>
+              </h4>
+            </div>
+            <div class="d-flex align-items-center mb-1">
+              <span class="h6 text-gray text-medium roboto-medium text-uppercase">LOT SIZE</span>
+              <img src="./assets/images/icons/briefcase.svg" class="briefcase-icon img-fluid px-1 Briefcase"
+                alt="Briefcase" />
+              <span class="h6 text-gray text-medium roboto-medium">{{d.BidLot}}</span>
+            </div>
+            <div class="mb-1">
+              <span class="h6 text-gray text-medium roboto-medium">{{d.IssueStartDateDisplay}} -
+                {{d.IssueEndDateDisplay}}</span>
+            </div>
+          </li>
+          <li>
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="text-primary text-regular roboto-regular">Exchange no.</h5>
+              <span class="h5 text-primary text-regular roboto-regular">
+                {{d.BidID}}
+              </span>
+            </div>
+          </li>
+          <li>
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="text-primary text-regular roboto-regular">Application no.</h5>
+              <span class="h5 text-primary text-regular roboto-regular">
+                {{d.ApplicationNo}}
+              </span>
+            </div>
+          </li>
+          <li>
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="text-primary text-regular roboto-regular">Investor type</h5>
+              <span class="h5 text-primary text-regular roboto-regular">
+                {{d.CATEGORY_SHOW}}
+              </span>
+            </div>
+          </li>
+          <li>
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="text-primary text-regular roboto-regular">No. of lots applied</h5>
+              <span class="h5 text-primary text-regular roboto-regular">
+                <span class="pr-1">{{d.totalLot}}</span>
+                <span>({{d.Quantity}} shares)</span>
+              </span>
+            </div>
+          </li>
+          <li>
+            <div class="d-flex align-items-start justify-content-between">
+              <div>
+                <h5 class="text-primary text-regular roboto-regular mb-1">Total amount payable</h5>
+              </div>
+              <span class="h4 text-primary text-regular roboto-regular">
+                <span>&#8377;</span>
+                <span>{{d.Amount.toLocaleString("en-IN", { minimumFractionDigits: 2 , maximumFractionDigits: 2
+                  })}}</span>
+              </span>
+            </div>
+          </li>
+          <li>
+            <div *ngIf="d.ASBAType != 0" class="d-flex align-items-start justify-content-between">
+              <h5 class="text-primary text-regular roboto-regular">Selected payment mode</h5>
+              <div>
+                <span class="h5 text-primary text-regular roboto-regular d-block mb-1">Kotak Bank (ASBA)</span>
+                <span class="h5 text-primary text-regular roboto-regular d-block text-right">{{ASBAAccountNo}}</span>
+              </div>
+            </div>
+            <div *ngIf="d.ASBAType == 0" class="d-flex align-items-start justify-content-between">
+              <h5 class="text-primary text-regular roboto-regular">Selected payment mode</h5>
+              <div class="d-flex">
+                <span class="h5 text-primary text-regular roboto-regular pr-1">UPI</span>
+                <span class="h5 text-primary text-regular roboto-regular text-right">({{d.UPIID}})</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

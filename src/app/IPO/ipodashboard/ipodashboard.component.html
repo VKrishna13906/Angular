@@ -1,0 +1,120 @@
+<app-ipo-header></app-ipo-header>
+<div class="MainBg">
+    <div class="MainInnerFormWithoutFlex mt-0" style="background-color: transparent;">
+        
+        <div class="GridRow2 GridGapTop">
+            <div class="TopMost">
+                <div class="SectionTopHeading">
+                    <!-- <span><img src="../../{{CommonBaseHref}}assets/images/IPO.svg" class="svg" width="25px" /> -->
+                    IPO
+                    <!-- <img class="CommonInfoIconSmall ml-2" src="../../{{CommonBaseHref}}assets/images/InfoIcon_Gray.svg" tooltip="Information of Top Current Holdings on the basis of Transactions data feed files which are uploaded in the system." autoPlacement="true" [max-width]="220" [displayTouchscreen]="true" [tooltip-class]="'CommonTooltip'"/>
+                    </span> -->
+                </div>
+                <div class="tab-content TabContentData pt-0">
+                    <table id="IPODataTable" class="CommonTable ">
+                        <thead>
+                            <tr>
+                                <th>Issue Name</th>
+                                <th>Open Date</th>
+                                <th>Close Date</th>
+                                <th>Price Band</th>
+                                <th>Bid Lot</th>
+                                <th>Bid Status</th>
+                                <th>Allotment Status</th>
+                                <th>Listing Date</th>
+                                <th>Issue Price</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="IPOList.length > 0">
+                            <tr *ngFor="let i of IPOList">
+                                <td>{{i.COMPANY_NAME}}</td>
+                                <td>{{i.Opendate}}</td>
+                                <td>{{i.Closedate}}</td>
+                                <td>{{i.PriceBand}}</td>
+                                <td>{{i.BidLot}}</td>
+                                <td>
+                                    <span class="CursorPointer">
+                                        <a (click)="ViewBidStatus(i.COMPANY_ID,'I');" class='hovereffect'>View</a>
+                                    </span>
+                                    <!-- <a routerLink='/ipo/BidStatus' routerLinkActive='active'>View</a>                                -->
+                                </td>
+                                <td>
+                                    <a routerLink='/ipo/AllotmentReport' routerLinkActive='active'>View</a>
+                                </td>
+                                <td>{{i.ListingDate}}</td>
+                                <td>{{i.IssuePrice}}</td>
+                                <td>{{i.IssueStatus}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody *ngIf="IPOList.length == 0">
+                            <tr class="NoRecordFound NoRecordFoundAlignTable">
+                                <td colspan="11">
+                                    No Record Found
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div *ngIf="IPOListAll.length > 5" class="text-right mt-3">
+                        <a (click)="GetMoreIPO();" class="BlueText ViewMoreLink">View more >></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="GridRow2 GridGapTop MainInnerFormWithoutFlex">
+        <div class="TopMost">
+            <div class="SectionTopHeading">
+                <!-- <span><img src="../../{{CommonBaseHref}}assets/images/NCD.svg" class="svg" width="25px" /> -->
+                NCD
+                <!-- <img class="CommonInfoIconSmall ml-2" src="../../{{CommonBaseHref}}assets/images/InfoIcon_Gray.svg" tooltip="Information of Top Current Holdings on the basis of Transactions data feed files which are uploaded in the system." autoPlacement="true" [max-width]="220" [displayTouchscreen]="true" [tooltip-class]="'CommonTooltip'"/>
+                    </span> -->
+            </div>
+            <div class="tab-content TabContentData pt-0">
+                <table id="NCDDataTable" class="CommonTable ">
+                    <thead>
+                        <tr>
+                            <th>Issue Name</th>
+                            <th>Open Date</th>
+                            <th>Close Date</th>
+                            <th>Face Value</th>
+                            <th>Bid Status</th>
+                            <th>Allotment Status</th>
+                            <th>Listing Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="NCDList.length > 0">
+                        <tr *ngFor="let i of NCDList">
+                            <td>{{i.COMPANY_NAME}}</td>
+                            <td>{{i.Opendate}}</td>
+                            <td>{{i.Closedate}}</td>
+                            <td>{{i.Facevalue}}</td>
+                            <td>
+                                <span class="CursorPointer">
+                                    <a (click)="ViewBidStatus(i.COMPANY_ID,'B');" class='hovereffect'>View</a>
+                                </span>
+                                <!-- <a routerLink='/ipo/BidStatus' routerLinkActive='active'>View</a>                                -->
+                            </td>
+                            <td>
+                                <a routerLink='/ipo/AllotmentReport' routerLinkActive='active'>View</a>
+                            </td>
+                            <td>{{i.ListingDate}}</td>
+                            <td>{{i.IssueStatus}}</td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="NCDList.length == 0">
+                        <tr class="NoRecordFound NoRecordFoundAlignTable">
+                            <td colspan="11">
+                                No Record Found
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="NCDListAll.length > 5" class="text-right mt-3">
+                    <a (click)="GetMoreNCD();" class="BlueText ViewMoreLink">View more >></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
